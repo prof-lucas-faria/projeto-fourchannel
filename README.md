@@ -47,6 +47,9 @@ acesse a pasta ``` aplication/config/config.php```
 #mude $config['base_url'] = ''; para
 $config['base_url'] = 'http://localhost/projeto-fourchannel/';#ou o diretorio de onde ele esteja
 ```
+
+#Estrutura de pastas
+
 A estrutura de diretórios do CodeIgniter é dividida em 3 pastas −
 
     -Application

@@ -6,7 +6,7 @@ Comandos que iremos utilizar
 //Para baixar o projetos em maquinas distintas usamos o comando: "git clone <link do repositorio>"
 //Ficando algo asimm
 
-git clone https://github.com/brunoqualhato/banco_de_dados_I
+git clone https://github.com/prof-lucas-faria/projeto-fourchannel
 
 // Com o repositório baixado, acesse a pasta do mesmo
 // antes de qualquer alteração, utilize o comando "git pull"

@@ -48,7 +48,7 @@ acesse a pasta ``` aplication/config/config.php```
 $config['base_url'] = 'http://localhost/projeto-fourchannel/';#ou o diretorio de onde ele esteja
 ```
 
-#Estrutura de pastas
+# Estrutura de pastas
 
 A estrutura de diretórios do CodeIgniter é dividida em 3 pastas −
 
@@ -56,43 +56,43 @@ A estrutura de diretórios do CodeIgniter é dividida em 3 pastas −
     -System
     -User_guide
 
-##-Application
-Como o nome indica, a pasta Application contém todo o código do sistema que você está criando. Esta é a pasta onde você irá desenvolver seu projeto. A pasta Application contém várias outras pastas, que são explicadas abaixo 
+## -Application
+    Como o nome indica, a pasta Application contém todo o código do sistema que você está criando. Esta é a pasta onde você irá desenvolver seu projeto. A pasta Application contém várias outras pastas, que são explicadas abaixo 
 
-##Cache
+## Cache
      − Esta pasta contém todas as páginas em cache do seu sistema. Essas páginas armazenadas em cache aumentam a velocidade geral de acesso às páginas.
 
-##Config
+## Config
     − Esta pasta contém vários arquivos para configurar o sistema. Com a ajuda do arquivo config.php, o usuário pode configurar o sistema. Usando o arquivo database.php, o usuário pode configurar o banco de dados do sistema.
 
-##Controllers
+## Controllers
     − Esta pasta contém os controladores do seu sistema. É a parte básica do seu sistema.
 
-##Core 
+## Core 
     − Esta pasta irá conter a classe base do seu sistema.
 
-##Helpers 
+## Helpers 
     − Nesta pasta, você pode colocar a classe auxiliar do seu sistema.
 
-##Hooks 
+## Hooks 
     − Os arquivos nesta pasta fornecem um meio de explorar e modificar o funcionamento interno da estrutura sem invadir os arquivos principais.
 
-##Language 
+## Language 
     − Esta pasta contém arquivos relacionados ao idioma.
 
-##Libraries 
+## Libraries 
     − Esta pasta contém arquivos das bibliotecas desenvolvidas para sua aplicação.
 
-##Logs 
+## Logs 
     − Esta pasta contém arquivos relacionados ao log do sistema.
 
-##Models 
+## Models 
     − O login do banco de dados será colocado nessa pasta.
 
-##Third_party 
+## Third_party 
     − Nesta pasta, você pode colocar qualquer plug-in, que será usado para o seu aplicativo.
 
-##Views 
+## Views 
     − Os arquivos HTML do seu sistema serão colocados nessa pasta.
 
 

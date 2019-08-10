@@ -90,6 +90,73 @@ class TMDb
         );
         return $this->_makeCall('search/movie', $params);
     }
+
+
+
+    public function getPopularTv($query, $page = 1, $adult = false, $year = null, $lang = 'pt-BR')
+    {
+        $params = array(
+            'query' => $query,
+            'page' => (int) $page,
+            'include_adult' => (bool) $adult,
+            'year' => $year,
+            'language' => $lang
+        );
+        return $this->_makeCall('tv/popular', $params);
+    }
+
+
+    public function getTvImages($id, $lang = 'pt-BR')
+    {
+        $params = array(
+            'language' => $lang
+        );
+        return $this->_makeCall('tv/' . $id . '/images', $params);
+    }
+
+
+    public function getTvLatesd($lang = 'pt-BR')
+    {
+        $params = array(
+            'language' => $lang
+        );
+        return $this->_makeCall('tv/latest', $params);
+    }
+
+    public function getTvTopRated($page=1,$lang = 'pt-BR')
+    {
+        $params = array(
+            'page' => $page,
+            'language' => $lang
+        );
+        return $this->_makeCall('tv/top_rated', $params);
+    }
+
+    public function getTvSimilar($id,$page=1,$lang = 'pt-BR')
+    {
+        $params = array(
+            'page' => $page,
+            'language' => $lang
+        );
+        return $this->_makeCall('tv/'.$id.'/similar', $params);
+    }
+
+    public function getGroupEpsode($id,$lang = 'pt-BR')
+    {
+        $params = array(
+            'language' => $lang
+        );
+        return $this->_makeCall('tv/'.$id.'/episode_groups', $params);
+    }
+
+    public function getTvVideo($id,$lang = 'pt-BR')
+    {
+        $params = array(
+            'language' => $lang
+        );
+        return $this->_makeCall('tv/'.$id.'/videos', $params);
+    }
+
     /**
      * Search a person by querystring
      *
@@ -626,6 +693,8 @@ class TMDb
         );
         return $this->_makeCall('account/' . $account_id . '/movie_watchlist', $params, $session_id, TMDb::POST);
     }
+
+
     /**
      * Add a rating to a movie
      *
@@ -729,6 +798,7 @@ class TMDb
      * @param const $method				TMDb::GET or TMDb:POST (default TMDb::GET)
      * @return TMDb result array
      */
+
     private function _makeCall($function, $params = null, $session_id = null, $method = TMDb::GET)
     {
         $params = (!is_array($params)) ? array() : $params;

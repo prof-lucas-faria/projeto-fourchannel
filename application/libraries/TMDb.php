@@ -93,10 +93,9 @@ class TMDb
 
 
 
-    public function getPopularTv($query, $page = 1, $adult = false, $year = null, $lang = 'pt-BR')
+    public function getPopularTv($page = 1, $adult = false, $year = null, $lang = 'pt-BR')
     {
         $params = array(
-            'query' => $query,
             'page' => (int) $page,
             'include_adult' => (bool) $adult,
             'year' => $year,
@@ -123,7 +122,15 @@ class TMDb
         return $this->_makeCall('tv/latest', $params);
     }
 
-    public function getTvTopRated($page=1,$lang = 'pt-BR')
+    public function getTvRecomendation($idFilme, $page = 1, $lang = 'pt-BR')
+    {
+        $params = array(
+            'page' => $page,
+            'language' => $lang
+        );
+        return $this->_makeCall('tv/' . $idFilme . '/recommendations', $params);
+    }
+    public function getTvTopRated($page = 1, $lang = 'pt-BR')
     {
         $params = array(
             'page' => $page,
@@ -132,29 +139,29 @@ class TMDb
         return $this->_makeCall('tv/top_rated', $params);
     }
 
-    public function getTvSimilar($id,$page=1,$lang = 'pt-BR')
+    public function getTvSimilar($id, $page = 1, $lang = 'pt-BR')
     {
         $params = array(
             'page' => $page,
             'language' => $lang
         );
-        return $this->_makeCall('tv/'.$id.'/similar', $params);
+        return $this->_makeCall('tv/' . $id . '/similar', $params);
     }
 
-    public function getGroupEpsode($id,$lang = 'pt-BR')
+    public function getGroupEpsode($id, $lang = 'pt-BR')
     {
         $params = array(
             'language' => $lang
         );
-        return $this->_makeCall('tv/'.$id.'/episode_groups', $params);
+        return $this->_makeCall('tv/' . $id . '/episode_groups', $params);
     }
 
-    public function getTvVideo($id,$lang = 'pt-BR')
+    public function getTvVideo($id, $lang = 'pt-BR')
     {
         $params = array(
             'language' => $lang
         );
-        return $this->_makeCall('tv/'.$id.'/videos', $params);
+        return $this->_makeCall('tv/' . $id . '/videos', $params);
     }
 
     /**
@@ -349,6 +356,7 @@ class TMDb
     public function getNowPlayingMovies($page = 1, $lang = 'pt-BR')
     {
         $params = array(
+            'region' => "BR",
             'page' => (int) $page,
             'language' => ($lang !== null) ? $lang : false,
         );
@@ -394,6 +402,13 @@ class TMDb
     {
         return $this->_makeCall('movie/' . $id . '/changes');
     }
+
+    public function getMovieVideo($id)
+    {
+        $param = array("language" => 'pt-BR');
+        return $this->_makeCall('movie/' . $id . '/videos',$param);
+    }
+
 
     public function getListGenres($lang = 'pt-BR')
     {
@@ -454,12 +469,23 @@ class TMDb
         );
         return $this->_makeCall('person/' . $id . '/credits', $params);
     }
+    public function getCredits($idFilme)
+    {
+        return $this->_makeCall('movie/' . $idFilme . '/credits');
+    }
     /**
      * Retrieve all images for a particular person
      *
      * @param mixed $id					TMDb person-id
      * @return TMDb result array
      */
+
+    public function getFilmsDetalhe($id)
+    {
+        $dados = array("language" => "pt-BR");
+        return $this->_makeCall('movie/' . $id, $dados);
+    }
+
     public function getPersonImages($id)
     {
         return $this->_makeCall('person/' . $id . '/images');
@@ -889,3 +915,4 @@ class TMDb
  */
 class TMDbException extends Exception
 { }
+

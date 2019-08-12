@@ -2,21 +2,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 
-/**
- *
- * Controller Series
- *
- * This controller for ...
- *
- * @package   CodeIgniter
- * @category  Controller CI
- * @author    Setiawan Jodi <jodisetiawan@fisip-untirta.ac.id>
- * @author    Raul Guerrero <r.g.c@me.com>
- * @link      https://github.com/setdjod/myci-extension/
- * @param     ...
- * @return    ...
- *
- */
+
 
 class Series extends CI_Controller
 {
@@ -32,7 +18,3 @@ class Series extends CI_Controller
   }
 
 }
-
-
-/* End of file Series.php */
-/* Location: ./application/controllers/Series.php */

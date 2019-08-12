@@ -1,20 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/**
- *
- * Model Filme_model
- *
- * This Model for ...
- * 
- * @package		CodeIgniter
- * @category	Model
- * @author    Setiawan Jodi <jodisetiawan@fisip-untirta.ac.id>
- * @link      https://github.com/setdjod/myci-extension/
- * @param     ...
- * @return    ...
- *
- */
 
 class Filme_model extends CI_Model {
 
@@ -37,6 +23,3 @@ class Filme_model extends CI_Model {
   // ------------------------------------------------------------------------
 
 }
-
-/* End of file Filme_model.php */
-/* Location: ./application/models/Filme_model.php */

@@ -9,9 +9,24 @@ class Filmes extends CI_Controller
     parent::__construct();
   }
 
-  public function index()
+  public function detalheFilmes($idFilme)
   {
-    // 
+  	
+  }
+
+  public function lancamentos()
+  {
+
+  }
+
+  public function nowPlaying()
+  {
+  	
+  }
+
+  public function listaDeGeneros()
+  {
+  	
   }
 
 }

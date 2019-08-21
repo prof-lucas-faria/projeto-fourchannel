@@ -14,9 +14,9 @@ class Filmes extends CI_Controller
   	
   }
 
-  public function lancamentos()
+  public function filmesPopulares()
   {
-
+   
   }
 
   public function nowPlaying()
@@ -29,4 +29,13 @@ class Filmes extends CI_Controller
   	
   }
 
+  public function listarPorGenero($idGenero)
+  {
+      
+  }  
+
+  public function pesquisarFilme()
+  {
+    
+  }
 }

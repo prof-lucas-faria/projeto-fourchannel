@@ -10,12 +10,47 @@ class Series_model extends CI_Model {
     parent::__construct();
   }
 
-  public function listarTvTopRated()
+  public function listarTopRated()
   {
     
   }
 
   public function listarPopulares()
+  {
+    
+  }
+
+  public function listaDeGeneros()
+  {
+    
+  }
+
+  public function detalhesFullSerie($idSerie)
+  {
+    
+  }
+
+  public function detalheSerie()
+  {
+    
+  }
+
+  public function listarPessoaProducao($idSerie)
+  {
+  
+  }
+
+  public function listaDeComentarios($idSerie)
+  {
+    
+  }
+
+  public function listaDeSerieSimilares($idSerie)
+  {
+    
+  }
+
+  public function listaDeTrailers($idSerie)
   {
     
   }

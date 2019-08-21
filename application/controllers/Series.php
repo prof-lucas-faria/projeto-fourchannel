@@ -12,9 +12,14 @@ class Series extends CI_Controller
     parent::__construct();
   }
 
-  public function index()
+  public function topRanted()
   {
-    // 
+  	
+  }
+
+  public function populares()
+  {
+  
   }
 
 }

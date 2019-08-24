@@ -123,6 +123,54 @@
                 </div><!-- close .item-listing-container-skrn -->
             </div><!-- close .col -->
 
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                <div class="item-listing-container-skrn">
+                    <a href="dashboard-movie-profile.html"><img src="http://via.placeholder.com/500x707"
+                            alt="Listing"></a>
+                    <div class="item-listing-text-skrn">
+                        <div class="item-listing-text-skrn-vertical-align">
+                            <h6><a href="dashboard-movie-profile.html">Nome do filme</a></h6>
+                            <div class="circle-rating-pro" data-value="0.6" data-animation-start-value="0.6"
+                                data-size="32" data-thickness="3" data-fill="{
+							          &quot;color&quot;: &quot;#42b740&quot;
+							        }" data-empty-fill="#ffe1e1" data-reverse="true"><span style="color:#ff4141;">9.0</span></div>
+                        </div><!-- close .item-listing-text-skrn-vertical-align -->
+                    </div><!-- close .item-listing-text-skrn -->
+                </div><!-- close .item-listing-container-skrn -->
+            </div><!-- close .col -->
+
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                <div class="item-listing-container-skrn">
+                    <a href="dashboard-movie-profile.html"><img src="http://via.placeholder.com/500x707"
+                            alt="Listing"></a>
+                    <div class="item-listing-text-skrn">
+                        <div class="item-listing-text-skrn-vertical-align">
+                            <h6><a href="dashboard-movie-profile.html">Nome do filme</a></h6>
+                            <div class="circle-rating-pro" data-value="0.6" data-animation-start-value="0.6"
+                                data-size="32" data-thickness="3" data-fill="{
+							          &quot;color&quot;: &quot;#42b740&quot;
+							        }" data-empty-fill="#ffe1e1" data-reverse="true"><span style="color:#ff4141;">9.0</span></div>
+                        </div><!-- close .item-listing-text-skrn-vertical-align -->
+                    </div><!-- close .item-listing-text-skrn -->
+                </div><!-- close .item-listing-container-skrn -->
+            </div><!-- close .col -->
+
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                <div class="item-listing-container-skrn">
+                    <a href="dashboard-movie-profile.html"><img src="http://via.placeholder.com/500x707"
+                            alt="Listing"></a>
+                    <div class="item-listing-text-skrn">
+                        <div class="item-listing-text-skrn-vertical-align">
+                            <h6><a href="dashboard-movie-profile.html">Nome do filme</a></h6>
+                            <div class="circle-rating-pro" data-value="0.6" data-animation-start-value="0.6"
+                                data-size="32" data-thickness="3" data-fill="{
+							          &quot;color&quot;: &quot;#42b740&quot;
+							        }" data-empty-fill="#ffe1e1" data-reverse="true"><span style="color:#ff4141;">9.0</span></div>
+                        </div><!-- close .item-listing-text-skrn-vertical-align -->
+                    </div><!-- close .item-listing-text-skrn -->
+                </div><!-- close .item-listing-container-skrn -->
+            </div><!-- close .col -->
+
         </div><!-- close .row -->
 
         <ul class="page-numbers">

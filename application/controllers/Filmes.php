@@ -20,10 +20,10 @@ class Filmes extends CI_Controller
     $this->load->view('filmes/detalhe_filme');
   }
 
-  public function lancamentos()
+  public function filmesPopulares()
   {
-    $this->load->view('hooks/menu_lateral');
-    $this->load->view('filmes/lancamento');
+    /** $this->load->view('hooks/menu_lateral');*/
+   /**  $this->load->view('filmes/lancamento');**/
 
   }
 
@@ -39,4 +39,13 @@ class Filmes extends CI_Controller
     $this->load->view('filmes/listaDeGeneros');
   }
 
+  public function listarPorGenero($idGenero)
+  {
+      
+  }  
+
+  public function pesquisarFilme()
+  {
+    
+  }
 }

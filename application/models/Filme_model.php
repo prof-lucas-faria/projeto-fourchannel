@@ -44,5 +44,20 @@ class Filme_model extends CI_Model {
   {
     
   }
+  
+  public function listaDeReviews($idFilme)
+  {
+    
+  }
+  
+  public function listaDeFilmesPorGenero($idGenero)
+  {
+    
+  }
+
+  public function buscarFilme($query)
+  {
+    
+  }
 
 }

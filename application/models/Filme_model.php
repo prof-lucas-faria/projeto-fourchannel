@@ -12,22 +12,22 @@ class Filme_model extends CI_Model {
 
   public function listarFilmesPopulares()
   {
-    
+   return  $this->tmdb->getPopularMovies();
   }
 
   public function listarNowPlaying()
   {
-    
+    return  $this->tmdb->getNowPlayingMovies();
   }
 
   public function listaDeGeneros()
   {
-
+    return  $this->tmdb->getListGenres();
   }
 
   public function detalhesFullFilme($idPessoa)
   {
-
+    return  $this->tmdb->getFilmsDetalhe();
   }
 
   public function listarFilme($idFilme)
@@ -47,7 +47,7 @@ class Filme_model extends CI_Model {
   
   public function listaDeReviews($idFilme)
   {
-    
+   
   }
   
   public function listaDeFilmesPorGenero($idGenero)

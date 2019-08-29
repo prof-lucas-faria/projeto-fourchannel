@@ -57,18 +57,9 @@
 			
 			<div id="movie-detail-header-pro" style="background-image:url('http://via.placeholder.com/1442x775')">
 				
-				<div class="progression-studios-slider-more-options">
-					<i class="fas fa-ellipsis-h"></i>
-					<ul>
-						<li><a href="#!">Add to Favorites</a></li>
-						<li><a href="#!">Add to Watchlist</a></li>
-						<li><a href="#!">Add to Playlist</a></li>
-						<li><a href="#!">Share...</a></li>
-						<li><a href="#!">Write A Review</a></li>
-					</ul>
-				</div>
 				
-				<a class="movie-detail-header-play-btn afterglow" href="#VideoLightbox-1"><i class="fas fa-play"></i></a>
+				
+			
 				
 	         <video id="VideoLightbox-1"  poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg?v1" width="960" height="540">
 	             <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.mp4" type="video/mp4">

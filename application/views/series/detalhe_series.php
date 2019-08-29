@@ -13,10 +13,31 @@
 				<h4 class="content-sidebar-sub-header">Lançamento de Temporadas</h4>
 				<div class="content-sidebar-short-description">2 October, 2017 (USA)</div>
 			</div><!-- close .content-sidebar-section -->
+
+			<div class="content-sidebar-section">
+				<h4 class="content-sidebar-sub-header">Gêneros</h4>
+				<div class="content-sidebar-short-description">Comédia/Ação/Drama</div>
+			</div><!-- close .content-sidebar-section -->
 			
+			<div class="content-sidebar-section">
+				<h4 class="content-sidebar-sub-header">Temporadas</h4>
+				<div class="content-sidebar-short-description">5 Temporadas</div>
+			</div><!-- close .content-sidebar-section -->
+			
+
+			<div class="content-sidebar-section">
+				<h4 class="content-sidebar-sub-header">Episódios</h4>
+				<div class="content-sidebar-short-description">23 Episódios</div>
+			</div><!-- close .content-sidebar-section -->
+
 			<div class="content-sidebar-section">
 				<h4 class="content-sidebar-sub-header">Duração do Episódio</h4>
 				<div class="content-sidebar-short-description">2 hr 43 min</div>
+			</div><!-- close .content-sidebar-section -->
+
+			<div class="content-sidebar-section">
+				<h4 class="content-sidebar-sub-header">Em produção</h4>
+				<div class="content-sidebar-short-description">Sim</div>
 			</div><!-- close .content-sidebar-section -->
 			
 			<div class="content-sidebar-section">
@@ -121,6 +142,80 @@
 				</div><!-- close .movie-details-section -->
 
 				<div class="movie-details-section">
+					<h2>Temporadas</h2>
+					<div class="row">
+						<div class="col-12 col-md-6 col-lg-6 col-xl-4">
+							<div class="item-listing-container-skrn">
+								<a href="#!"><img src="http://via.placeholder.com/507x672" alt="Cast"></a>
+								<div class="item-listing-text-skrn item-listing-movie-casting">
+									<h6><a href="#!">1ª Temporada</a></h6>
+									<div class="movie-casting-sub-title">22 Episódios</div>
+								</div><!-- close .item-listing-text-skrn -->
+							</div><!-- close .item-listing-container-skrn -->
+						</div><!-- close .col -->
+						
+						<div class="col-12 col-md-6 col-lg-6 col-xl-4">
+							<div class="item-listing-container-skrn">
+								<a href="#!"><img src="http://via.placeholder.com/507x672" alt="Cast"></a>
+								<div class="item-listing-text-skrn item-listing-movie-casting">
+									<h6><a href="#!">2ª Temporada</a></h6>
+									<div class="movie-casting-sub-title">20 Episódios</div>
+								</div><!-- close .item-listing-text-skrn -->
+							</div><!-- close .item-listing-container-skrn -->
+						</div><!-- close .col -->
+						
+						<div class="col-12 col-md-6 col-lg-6 col-xl-4">
+							<div class="item-listing-container-skrn">
+								<a href="#!"><img src="http://via.placeholder.com/507x672" alt="Cast"></a>
+								<div class="item-listing-text-skrn item-listing-movie-casting">
+									<h6><a href="#!">3ª Temporada</a></h6>
+									<div class="movie-casting-sub-title">23 Episódios</div>
+								</div><!-- close .item-listing-text-skrn -->
+							</div><!-- close .item-listing-container-skrn -->
+						</div><!-- close .col -->
+						
+					</div><!-- close .row -->
+				</div><!-- close .movie-details-section -->
+
+				<div class="movie-details-section">
+					<h2>Criado por</h2>
+					<div class="row">
+						<div class="col-12 col-md-6 col-lg-6 col-xl-4">
+							<div class="item-listing-container-skrn">
+								<a href="#!"><img src="http://via.placeholder.com/507x672" alt="Cast"></a>
+								<div class="item-listing-text-skrn item-listing-movie-casting">
+									<h6><a href="#!">Robert Downey Jr.</a></h6>
+									<div class="movie-casting-sub-title">Tony Stark</div>
+								</div><!-- close .item-listing-text-skrn -->
+							</div><!-- close .item-listing-container-skrn -->
+						</div><!-- close .col -->
+						
+						<div class="col-12 col-md-6 col-lg-6 col-xl-4">
+							<div class="item-listing-container-skrn">
+								<a href="#!"><img src="http://via.placeholder.com/507x672" alt="Cast"></a>
+								<div class="item-listing-text-skrn item-listing-movie-casting">
+									<h6><a href="#!">Scarlett Johansson</a></h6>
+									<div class="movie-casting-sub-title">Black Widow</div>
+								</div><!-- close .item-listing-text-skrn -->
+							</div><!-- close .item-listing-container-skrn -->
+						</div><!-- close .col -->
+						
+						<div class="col-12 col-md-6 col-lg-6 col-xl-4">
+							<div class="item-listing-container-skrn">
+								<a href="#!"><img src="http://via.placeholder.com/507x672" alt="Cast"></a>
+								<div class="item-listing-text-skrn item-listing-movie-casting">
+									<h6><a href="#!">Chris Hemsworth
+Thor</a></h6>
+									<div class="movie-casting-sub-title">Tony Stark</div>
+								</div><!-- close .item-listing-text-skrn -->
+							</div><!-- close .item-listing-container-skrn -->
+						</div><!-- close .col -->
+						
+					</div><!-- close .row -->
+				</div><!-- close .movie-details-section -->
+
+
+				<div class="movie-details-section">
 					<h2>Elenco</h2>
 					<div class="row">
 						<div class="col-12 col-md-6 col-lg-6 col-xl-4">
@@ -157,9 +252,46 @@ Thor</a></h6>
 					</div><!-- close .row -->
 				</div><!-- close .movie-details-section -->
 
-					
 				<div class="movie-details-section">
-					<h2>Filmes Semelhantes</h2>
+					<h2>Disponível em</h2>
+					<div class="row">
+						<div class="col-12 col-md-6 col-lg-6 col-xl-4">
+							<div class="item-listing-container-skrn">
+								<a href="#!"><img src="http://via.placeholder.com/507x672" alt="Cast"></a>
+								<div class="item-listing-text-skrn item-listing-movie-casting">
+									<h6><a href="#!">Robert Downey Jr.</a></h6>
+									<div class="movie-casting-sub-title">Tony Stark</div>
+								</div><!-- close .item-listing-text-skrn -->
+							</div><!-- close .item-listing-container-skrn -->
+						</div><!-- close .col -->
+						
+						<div class="col-12 col-md-6 col-lg-6 col-xl-4">
+							<div class="item-listing-container-skrn">
+								<a href="#!"><img src="http://via.placeholder.com/507x672" alt="Cast"></a>
+								<div class="item-listing-text-skrn item-listing-movie-casting">
+									<h6><a href="#!">Scarlett Johansson</a></h6>
+									<div class="movie-casting-sub-title">Black Widow</div>
+								</div><!-- close .item-listing-text-skrn -->
+							</div><!-- close .item-listing-container-skrn -->
+						</div><!-- close .col -->
+						
+						<div class="col-12 col-md-6 col-lg-6 col-xl-4">
+							<div class="item-listing-container-skrn">
+								<a href="#!"><img src="http://via.placeholder.com/507x672" alt="Cast"></a>
+								<div class="item-listing-text-skrn item-listing-movie-casting">
+									<h6><a href="#!"></a></h6>
+									<div class="movie-casting-sub-title">Tony Stark</div>
+								</div><!-- close .item-listing-text-skrn -->
+							</div><!-- close .item-listing-container-skrn -->
+						</div><!-- close .col -->
+						
+					</div><!-- close .row -->
+				</div><!-- close .movie-details-section -->
+	
+
+
+				<div class="movie-details-section">
+					<h2>Series Semelhantes</h2>
 					<div class="row">
 						<div class="col-12 col-md-6 col-lg-6 col-xl-4">
 							<div class="item-listing-container-skrn">

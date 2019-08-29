@@ -7,12 +7,16 @@ class Filmes extends CI_Controller
   public function __construct()
   {
     parent::__construct();
+    $this->load->model("filme_model");
   }
 
   public function index()
   {
-    $this->load->view('hooks/menu_lateral');
-    $this->load->view('filmes/home');
+    $data['generos'] = $this->listaDeGeneros();
+    $this->load->view('hooks/menu_lateral',$data);
+
+    $data['populares'] = $this->filmesPopulares();
+    $this->load->view('filmes/home',$data);
   }
   public function detalheFilmes($idFilme)
   {
@@ -22,26 +26,26 @@ class Filmes extends CI_Controller
 
   public function filmesPopulares()
   {
-    /** $this->load->view('hooks/menu_lateral');*/
-   /**  $this->load->view('filmes/lancamento');**/
+  return $this->filme_model->listarFilmesPopulares();
 
   }
 
   public function nowPlaying()
   {
-  	$this->load->view('hooks/menu_lateral');
-    $this->load->view('filmes/nowPlaying');
+  /*	$this->load->view('hooks/menu_lateral');
+    $this->load->view('filmes/nowPlaying');*/
+    return $this->filme_model->listarNowPlaying();
   }
 
   public function listaDeGeneros()
   {
-    $this->load->view('hooks/menu_lateral');
-    $this->load->view('filmes/listaDeGeneros');
+    return $this->filme_model->listaDeGeneros();
   }
 
   public function listarPorGenero($idGenero)
   {
-      
+    $this->load->view('hooks/menu_lateral');
+    $this->load->view('filmes/filmes_por_genero');
   }  
 
   public function pesquisarFilme()

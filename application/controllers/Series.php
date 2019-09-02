@@ -19,7 +19,8 @@ class Series extends CI_Controller
   }
   public function detalheSerie($idSerie)
   {
-    
+    $this->load->view('hooks/menu_lateral');
+    $this->load->view('series/detalhe_series');
   }
 
   public function topRanted()

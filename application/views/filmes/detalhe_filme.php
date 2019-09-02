@@ -1,109 +1,81 @@
 <div id="content-sidebar-pro">
-			
-			<div id="content-sidebar-image">
-				<img src="http://via.placeholder.com/450x620" alt="Movie Poster">
-			</div>
-			
-			<div class="content-sidebar-section">
-				<h2 class="content-sidebar-sub-header">Nome do FIlme</h2>
-				
-			</div><!-- close .content-sidebar-section -->
-			
-			<div class="content-sidebar-section">
-				<h4 class="content-sidebar-sub-header">Lançamento</h4>
-				<div class="content-sidebar-short-description">2 October, 2017 (USA)</div>
-			</div><!-- close .content-sidebar-section -->
-			
-			<div class="content-sidebar-section">
-				<h4 class="content-sidebar-sub-header">Duração</h4>
-				<div class="content-sidebar-short-description">2 hr 43 min</div>
-			</div><!-- close .content-sidebar-section -->
-			
-			<div class="content-sidebar-section">
-				<h4 class="content-sidebar-sub-header">Diretor</h4>
-				<div class="content-sidebar-short-description">Nome do diretor</div>
-			</div><!-- close .content-sidebar-section -->
+		
+<div id="content-sidebar-image">
+        <img src="https://image.tmdb.org/t/p/w500<?= $detalhes_full['detalhes']['poster_path'] ?>" alt="Movie Poster">
+    </div>
 
-			
-			
-			<div class="content-sidebar-section">
-				<h2 class="content-sidebar-sub-header adjusted-recent-reviews">Resenhas Recentes</h2>
-				<ul id="sidebar-reviews-pro">
-					<li>
-				      <div
-				        class="circle-rating-pro"
-				        data-value="0.86"
-				        data-animation-start-value="0.86"
-				        data-size="32"
-				        data-thickness="3"
-				        data-fill="{
-				          &quot;color&quot;: &quot;#42b740&quot;
-				        }"
-				        data-empty-fill="#def6de"
-				        data-reverse="true"
-				      ><span style="color:#42b740;">8.6</span></div>
-						<h6>Dan Cederholm</h6>
-						<div class="sidebar-review-time">October 22, 2017</div>
-						<div class="spoiler-review">Contains Spoiler</div>
-						<p>They don't make many Sci-Fi films these days. This was a pleasant surprise all throughout the film. I really like this film.</p>
-					</li>
-				</ul>
-				<a href="#!" class="btn btn-green-pro btn-sm">See All Reviews</a>
-			</div><!-- close .content-sidebar-section -->
-			
+    <div class="content-sidebar-section">
+        <h2 class="content-sidebar-sub-header"><?= $detalhes_full['detalhes']['title'] ?></h2>
+       
+    </div><!-- close .content-sidebar-section -->
+
+    <div class="content-sidebar-section">
+        <h4 class="content-sidebar-sub-header">Laçamento</h4>
+        <div class="content-sidebar-short-description"><?php $now = new DateTime($detalhes_full['detalhes']['release_date']);
+                                                        echo $now->format("d/m/Y")  ?></div>
+    </div><!-- close .content-sidebar-section -->
+
+    <div class="content-sidebar-section">
+        <h4 class="content-sidebar-sub-header">Duração</h4>
+        <div class="content-sidebar-short-description"><?= $detalhes_full['detalhes']['runtime'] ?> min</div>
+    </div><!-- close .content-sidebar-section -->
+
+    <div class="content-sidebar-section">
+        <h4 class="content-sidebar-sub-header">Diretor</h4>
+        <?php foreach($detalhes_full['elenco']['crew'] as $producao){?>
+            <?php if($producao['department'] =="Directing" && $producao['job'] =="Director"){?>
+        <div class="content-sidebar-short-description"><?= $producao['name']?></div>
+        <?php }?>
+        <?php }?>
+    </div><!-- close .content-sidebar-section -->
+
+
+		
+
+    <div class="content-sidebar-section">
+        <h2 class="content-sidebar-sub-header adjusted-recent-reviews">Reviews Recentes</h2>
+        <ul id="sidebar-reviews-pro">
+            <?php if ($detalhes_full['reviews']['results'] != null && $detalhes_full['reviews']['results'] != "")  { ?>
+            <?php foreach ($detalhes_full['reviews']['results'] as $reviews) { ?>
+            <li><?= var_dump($reviews) ?>
+                <h6><?= $reviews['author'] ?></h6>
+                <!-- <div class="sidebar-review-time">October 22, 2017</div> -->
+                <!-- <div class="spoiler-review">Contains Spoiler</div> -->
+                <p><?= $reviews['content'] ?></p>
+            </li>
+            <?php } ?>
+            <?php } else { ?>
+            <h6>Nenhum Resultado</h6>
+            <?php } ?>
+        </ul>
+
+    </div><!-- close .content-sidebar-section -->
 		</div><!-- close #content-sidebar-pro -->
 		
 <main id="col-main-with-sidebar">
-			
-			<div id="movie-detail-header-pro" style="background-image:url('http://via.placeholder.com/1442x775')">
-				
-				
-				
-			
-				
-	         <video id="VideoLightbox-1"  poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg?v1" width="960" height="540">
-	             <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.mp4" type="video/mp4">
-	             <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.webm" type="video/webm">
-	         </video>
-				
-				<div id="movie-detail-header-media">
-					<div class="dashboard-container">
-						<h5>Trailers</h5>						
-						<div class="row">
-							<div class="col-6 col-md-4 col-lg-4">
-								<a class="movie-detail-media-link afterglow" href="#VideoLightbox-1">
-									<div class="movie-detail-media-image">
-										<img src="http://via.placeholder.com/500x300">
-										<span><i class="fas fa-play"></i></span>
-										<h6>Trailer</h6>
-									</div>
-								</a>
-							</div>
-							<div class="col-6 col-md-4 col-lg-4">
-								<a class="movie-detail-media-link afterglow" href="#VideoLightbox-1">
-									<div class="movie-detail-media-image">
-										<img src="http://via.placeholder.com/500x300">
-										<span><i class="fas fa-play"></i></span>
-										<h6>Interview</h6>
-									</div>
-								</a>
-							</div>
-							<div class="col-6 col-md-4 col-lg-4">
-								<a class="movie-detail-media-link" href="#!">
-									<div class="movie-detail-media-image">
-										<img src="http://via.placeholder.com/500x300">
-										<span><i class="fas fa-play"></i></span>
-										<h6>Movie Stills</h6>
-									</div>
-								</a>
-							</div>
-						</div><!-- close .row -->
-					</div><!-- close .dashboard-container -->
-				</div><!-- close #movie-detail-header-media -->
-				
-				<div id="movie-detail-gradient-pro"></div>
-			</div><!-- close #movie-detail-header-pro -->
-			
+		
+    <div id="movie-detail-header-pro" style="background-image:url('https://image.tmdb.org/t/p/original/<?= $detalhes_full['detalhes']['backdrop_path'] ?>')">
+
+        <div id="movie-detail-header-media">
+            <div class="dashboard-container">
+                <h5>Traillers</h5>
+                <div class="row">
+                    <?php foreach ($detalhes_full['videos']['results'] as $traillers) { ?>
+                    <div class="col-6 col-md-4 col-lg-4">
+                        <div class="movie-detail-media-image">
+                            <iframe width="auto" height="auto" src="https://www.youtube.com/embed/<?= $traillers['key'] ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+
+                    </div>
+                    <?php } ?>
+
+                </div><!-- close .row -->
+            </div><!-- close .dashboard-container -->
+        </div><!-- close #movie-detail-header-media -->
+
+        <div id="movie-detail-gradient-pro"></div>
+    </div><!-- close #movie-detail-header-pro -->
+
 			
 			<div id="movie-detail-rating">
 				<div class="dashboard-container">
@@ -117,124 +89,54 @@
 				
 				<div class="movie-details-section">
 					<h2>Resumo</h2>
-					<p> Texto de Resumo</p>
+					<p><?= $detalhes_full['detalhes']['overview'] ?></p>
 				</div><!-- close .movie-details-section -->
 
-				<div class="movie-details-section">
-					<h2>Elenco</h2>
-					<div class="row">
-						<div class="col-12 col-md-6 col-lg-6 col-xl-4">
-							<div class="item-listing-container-skrn">
-								<a href="#!"><img src="http://via.placeholder.com/507x672" alt="Cast"></a>
-								<div class="item-listing-text-skrn item-listing-movie-casting">
-									<h6><a href="#!">Robert Downey Jr.</a></h6>
-									<div class="movie-casting-sub-title">Tony Stark</div>
-								</div><!-- close .item-listing-text-skrn -->
-							</div><!-- close .item-listing-container-skrn -->
-						</div><!-- close .col -->
-						
-						<div class="col-12 col-md-6 col-lg-6 col-xl-4">
-							<div class="item-listing-container-skrn">
-								<a href="#!"><img src="http://via.placeholder.com/507x672" alt="Cast"></a>
-								<div class="item-listing-text-skrn item-listing-movie-casting">
-									<h6><a href="#!">Scarlett Johansson</a></h6>
-									<div class="movie-casting-sub-title">Black Widow</div>
-								</div><!-- close .item-listing-text-skrn -->
-							</div><!-- close .item-listing-container-skrn -->
-						</div><!-- close .col -->
-						
-						<div class="col-12 col-md-6 col-lg-6 col-xl-4">
-							<div class="item-listing-container-skrn">
-								<a href="#!"><img src="http://via.placeholder.com/507x672" alt="Cast"></a>
-								<div class="item-listing-text-skrn item-listing-movie-casting">
-									<h6><a href="#!">Chris Hemsworth
-Thor</a></h6>
-									<div class="movie-casting-sub-title">Tony Stark</div>
-								</div><!-- close .item-listing-text-skrn -->
-							</div><!-- close .item-listing-container-skrn -->
-						</div><!-- close .col -->
-						
-					</div><!-- close .row -->
-				</div><!-- close .movie-details-section -->
+				<div class="movie-details-section ">
+            		<h2>Elenco</h2>
+            		<div class="row flex-row ">
+                		<?php foreach ($detalhes_full['elenco']['cast'] as $elenco) { ?>
+                		<?php if ($elenco['profile_path'] != null && $elenco['profile_path'] != '') { ?>
+                		<div class="col-12 col-md-6 col-lg-6 col-xl-4 ">
+                   			 <div class="item-listing-container-skrn">
+                        		<a href="#!"><img src="https://image.tmdb.org/t/p/w500<?= $elenco['profile_path'] ?>" alt="Cast"></a>
+                        		<div class="item-listing-text-skrn item-listing-movie-casting">
+                           		 	<h6><a href="#!"><?= $elenco['character'] ?></a></h6>
+                            	<div class="movie-casting-sub-title"><?= $elenco['name'] ?></div>
+                       		 	</div><!-- close .item-listing-text-skrn -->
+                   		 	</div><!-- close .item-listing-container-skrn -->
+                		</div><!-- close .col -->
+                		<?php } ?>
+               		 	<?php } ?>
+           			</div><!-- close .row -->
+       			 </div><!-- close .movie-details-section -->
 
 					
-				<div class="movie-details-section">
-					<h2>Filmes Semelhantes</h2>
-					<div class="row">
-						<div class="col-12 col-md-6 col-lg-6 col-xl-4">
-							<div class="item-listing-container-skrn">
-								<a href="dashboard-movie-profile.html"><img src="http://via.placeholder.com/500x707" alt="Listing"></a>
-								<div class="item-listing-text-skrn">
-									<div class="item-listing-text-skrn-vertical-align"><h6><a href="dashboard-movie-profile.html">Bad Neighbors 2</a></h6>
-								      <div
-								        class="circle-rating-pro"
-								        data-value="0.72"
-								        data-animation-start-value="0.72"
-								        data-size="32"
-								        data-thickness="3"
-								        data-fill="{
-								          &quot;color&quot;: &quot;#42b740&quot;
-								        }"
-								        data-empty-fill="#def6de"
-								        data-reverse="true"
-								      ><span style="color:#42b740;">7.2</span></div>
-									</div><!-- close .item-listing-text-skrn-vertical-align -->
-								</div><!-- close .item-listing-text-skrn -->
-							</div><!-- close .item-listing-container-skrn -->
-						</div><!-- close .col -->
-					
-					
-						<div class="col-12 col-md-6 col-lg-6 col-xl-4">
-							<div class="item-listing-container-skrn">
-								<a href="dashboard-movie-profile.html"><img src="http://via.placeholder.com/500x707" alt="Listing"></a>
-								<div class="item-listing-text-skrn">
-									<div class="item-listing-text-skrn-vertical-align"><h6><a href="dashboard-movie-profile.html">Star Wars: Rogue One</a></h6>
-								      <div
-								        class="circle-rating-pro"
-								        data-value="0.86"
-								        data-animation-start-value="0.86"
-								        data-size="32"
-								        data-thickness="3"
-								        data-fill="{
-								          &quot;color&quot;: &quot;#42b740&quot;
-								        }"
-								        data-empty-fill="#def6de"
-								        data-reverse="true"
-								      ><span style="color:#42b740;">8.6</span></div>
-									</div><!-- close .item-listing-text-skrn-vertical-align -->
-								</div><!-- close .item-listing-text-skrn -->
-							</div><!-- close .item-listing-container-skrn -->
-						</div><!-- close .col -->
-					
-						<div class="col-12 col-md-6 col-lg-6 col-xl-4">
-							<div class="item-listing-container-skrn">
-								<a href="dashboard-movie-profile.html"><img src="http://via.placeholder.com/500x707" alt="Listing"></a>
-								<div class="item-listing-text-skrn">
-									<div class="item-listing-text-skrn-vertical-align"><h6><a href="dashboard-movie-profile.html">The Imitation Game</a></h6>
-								      <div
-								        class="circle-rating-pro"
-								        data-value="0.6"
-								        data-animation-start-value="0.6"
-								        data-size="32"
-								        data-thickness="3"
-								        data-fill="{
-								          &quot;color&quot;: &quot;#ff4141&quot;
-								        }"
-								        data-empty-fill="#ffe1e1"
-								        data-reverse="true"
-								      ><span style="color:#ff4141;">6.0</span></div>
-									</div><!-- close .item-listing-text-skrn-vertical-align -->
-								</div><!-- close .item-listing-text-skrn -->
-							</div><!-- close .item-listing-container-skrn -->
-						</div><!-- close .col -->
-					</div><!-- close .row -->
-				
-				</div><!-- close .movie-details-section -->
-				
-			</div><!-- close .dashboard-container -->
-		</main>
-		
-		
+					<div class="movie-details-section">
+            <h2>Filmes Semelhantes</h2>
+            <div class="row">
+
+                <?php foreach ($detalhes_full['similar']['results'] as $filmes_similares) { ?>
+                <?php if ($filmes_similares['poster_path'] != null && $filmes_similares['poster_path'] != '') { ?>
+                <div class="col-12 col-md-6 col-lg-6 col-xl-4">
+                    <div class="item-listing-container-skrn">
+                        <a href="<?= base_url() ?>index.php/Filmes/detalhesFilme/<?= $filmes_similares['id'] ?>"><img src="https://image.tmdb.org/t/p/w500<?= $filmes_similares['poster_path'] ?>" alt="Listing"></a>
+                        <div class="item-listing-text-skrn">
+                            <div class="item-listing-text-skrn-vertical-align">
+                                <h6><a href="<?= base_url() ?>index.php/Filmes/detalhesFilme/<?= $filmes_similares['id'] ?>"><?= $filmes_similares['title'] ?></a></h6>
+                                <div class="circle-rating-pro" data-value="0.<?= number_format($filmes_similares['vote_average']) ?>" data-animation-start-value="0.0" data-size="32" data-thickness="3" data-fill="{
+								                                                                                  &quot;color&quot;: &quot;#42b740&quot;
+								                                                                                }" data-empty-fill="#def6de" data-reverse="true"><span style="color:#42b740;"><?= $filmes_similares['vote_average'] ?></span></div>
+                            </div><!-- close .item-listing-text-skrn-vertical-align -->
+                        </div><!-- close .item-listing-text-skrn -->
+                    </div><!-- close .item-listing-container-skrn -->
+                </div><!-- close .col -->
+                <?php } ?>
+                <?php } ?>
+            </div><!-- close .movie-details-section -->
+
+        </div><!-- close .dashboard-container -->
+</main>
 		</div><!-- close #sidebar-bg-->
 		
 		<!-- Required Framework JavaScript -->

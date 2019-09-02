@@ -165,13 +165,15 @@
 		<nav id="sidebar-nav"><!-- Add class="sticky-sidebar-js" for auto-height sidebar -->
             <ul id="vertical-sidebar-nav" class="sf-menu">
             <li class="normal-item-pro current-menu-item">
-                <a href="dashboard-movies.html">
+                <a href="/projeto-fourchannel/index.php/Filmes/">
+				
 						<span class="icon-Reel"></span>
-                  Filmes
+				  Filmes
+				  
                 </a>
               </li>
               <li class="normal-item-pro">
-              <a href="dashboard-new-arrivals.html">
+              <a href="/projeto-fourchannel/index.php/Series/">
               <span class="icon-Movie-Ticket"></span>
                    Series
                 </a>

@@ -25,34 +25,41 @@ class Filme_model extends CI_Model {
     return  $this->tmdb->getListGenres();
   }
 
-  public function detalhesFullFilme($idPessoa)
+  public function detalhesFullFilme($idFilme)
   {
-    return  $this->tmdb->getFilmsDetalhe();
+    $dados = array(
+      "elenco" => $this->tmdb->getCredits($idFilme),
+      "detalhes" => $this->detalheFilme($idFilme),
+      "similar" => $this->listaDeFilmesSimilares($idFilme),
+      "videos" =>$this->listarFilme($idFilme),
+      "reviews" => $this->listaDeReviews($idFilme)
+    );
+    return $dados; 
   }
 
   public function listarFilme($idFilme)
   {
-    
+    return  $this->tmdb->getMovieVideo($idFilme);
   }
 
   public function listaDeFilmesSimilares($idFilme)
   {
-    
+    return  $this->tmdb->getSimilarMovies($idFilme);
   }
 
   public function detalheFilme($idFilme)
   {
+     return $this->tmdb->getFilmsDetalhe($idFilme);
     
   }
   
   public function listaDeReviews($idFilme)
   {
-   
   }
   
   public function listaDeFilmesPorGenero($idGenero)
   {
-    
+    return  $this->tmdb->getMoviesForGenre();
   }
 
   public function buscarFilme($query)

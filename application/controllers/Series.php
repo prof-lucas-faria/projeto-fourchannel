@@ -12,6 +12,17 @@ class Series extends CI_Controller
     parent::__construct();
   }
 
+  public function index()
+  {
+    $this->load->view('hooks/menu_lateral');
+    $this->load->view('series/home');
+  }
+  public function detalheSerie($idSerie)
+  {
+    $this->load->view('hooks/menu_lateral');
+    $this->load->view('series/detalhe_series');
+  }
+
   public function topRanted()
   {
   	
@@ -20,6 +31,16 @@ class Series extends CI_Controller
   public function populares()
   {
   
+  }
+
+  public function listaDeGeneros()
+  {
+    
+  }
+
+  public function detalheFullSerie($idSerie)
+  {
+    
   }
 
 }

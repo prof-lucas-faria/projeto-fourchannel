@@ -120,7 +120,7 @@
                 <?php if ($filmes_similares['poster_path'] != null && $filmes_similares['poster_path'] != '') { ?>
                 <div class="col-12 col-md-6 col-lg-6 col-xl-4">
                     <div class="item-listing-container-skrn">
-                        <a href="<?= base_url() ?>index.php/Filmes/detalhesFilme/<?= $filmes_similares['id'] ?>"><img src="https://image.tmdb.org/t/p/w500<?= $filmes_similares['poster_path'] ?>" alt="Listing"></a>
+                        <a href="<?= base_url() ?>index.php/Filmes/detalheFilmes/<?= $filmes_similares['id'] ?>"><img src="https://image.tmdb.org/t/p/w500<?= $filmes_similares['poster_path'] ?>" alt="Listing"></a>
                         <div class="item-listing-text-skrn">
                             <div class="item-listing-text-skrn-vertical-align">
                                 <h6><a href="<?= base_url() ?>index.php/Filmes/detalhesFilme/<?= $filmes_similares['id'] ?>"><?= $filmes_similares['title'] ?></a></h6>

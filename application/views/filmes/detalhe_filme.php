@@ -1,28 +1,28 @@
 <div id="content-sidebar-pro">
 		
 <div id="content-sidebar-image">
-        <img src="https://image.tmdb.org/t/p/w500<?= $detalhes_full['detalhes']['poster_path'] ?>" alt="Movie Poster">
+        <img src="https://image.tmdb.org/t/p/w500<?= $detalhes_full->detalhes->poster_path ?>" alt="Movie Poster">
     </div>
 
     <div class="content-sidebar-section">
-        <h2 class="content-sidebar-sub-header"><?= $detalhes_full['detalhes']['title'] ?></h2>
+        <h2 class="content-sidebar-sub-header"><?= $detalhes_full->detalhes->title ?></h2>
        
     </div><!-- close .content-sidebar-section -->
 
     <div class="content-sidebar-section">
         <h4 class="content-sidebar-sub-header">Laçamento</h4>
-        <div class="content-sidebar-short-description"><?php $now = new DateTime($detalhes_full['detalhes']['release_date']);
+        <div class="content-sidebar-short-description"><?php $now = new DateTime($detalhes_full->detalhes->release_date);
                                                         echo $now->format("d/m/Y")  ?></div>
     </div><!-- close .content-sidebar-section -->
 
     <div class="content-sidebar-section">
         <h4 class="content-sidebar-sub-header">Duração</h4>
-        <div class="content-sidebar-short-description"><?= $detalhes_full['detalhes']['runtime'] ?> min</div>
+        <div class="content-sidebar-short-description"><?= $detalhes_full->detalhes->runtime ?> min</div>
     </div><!-- close .content-sidebar-section -->
 
     <div class="content-sidebar-section">
         <h4 class="content-sidebar-sub-header">Diretor</h4>
-        <?php foreach($detalhes_full['elenco']['crew'] as $producao){?>
+        <?php foreach($detalhes_full->elenco->crew as $producao){?>
             <?php if($producao['department'] =="Directing" && $producao['job'] =="Director"){?>
         <div class="content-sidebar-short-description"><?= $producao['name']?></div>
         <?php }?>
@@ -35,9 +35,10 @@
     <div class="content-sidebar-section">
         <h2 class="content-sidebar-sub-header adjusted-recent-reviews">Reviews Recentes</h2>
         <ul id="sidebar-reviews-pro">
-            <?php if ($detalhes_full['reviews']['results'] != null && $detalhes_full['reviews']['results'] != "")  { ?>
-            <?php foreach ($detalhes_full['reviews']['results'] as $reviews) { ?>
-            <li><?= var_dump($reviews) ?>
+
+            <?php if ($detalhes_full->reviews != null && $detalhes_full->reviews != "")  { ?>
+            <?php foreach ($detalhes_full->reviews as $reviews) { ?>
+            <li>
                 <h6><?= $reviews['author'] ?></h6>
                 <!-- <div class="sidebar-review-time">October 22, 2017</div> -->
                 <!-- <div class="spoiler-review">Contains Spoiler</div> -->
@@ -54,13 +55,13 @@
 		
 <main id="col-main-with-sidebar">
 		
-    <div id="movie-detail-header-pro" style="background-image:url('https://image.tmdb.org/t/p/original/<?= $detalhes_full['detalhes']['backdrop_path'] ?>')">
+    <div id="movie-detail-header-pro" style="background-image:url('https://image.tmdb.org/t/p/original/<?= $detalhes_full->detalhes->backdrop_path ?>')">
 
         <div id="movie-detail-header-media">
             <div class="dashboard-container">
                 <h5>Traillers</h5>
                 <div class="row">
-                    <?php foreach ($detalhes_full['videos']['results'] as $traillers) { ?>
+                    <?php foreach ($detalhes_full->videos->results as $traillers) { ?>
                     <div class="col-6 col-md-4 col-lg-4">
                         <div class="movie-detail-media-image">
                             <iframe width="auto" height="auto" src="https://www.youtube.com/embed/<?= $traillers['key'] ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -89,13 +90,13 @@
 				
 				<div class="movie-details-section">
 					<h2>Resumo</h2>
-					<p><?= $detalhes_full['detalhes']['overview'] ?></p>
+					<p><?= $detalhes_full->detalhes->overview ?></p>
 				</div><!-- close .movie-details-section -->
 
 				<div class="movie-details-section ">
             		<h2>Elenco</h2>
             		<div class="row flex-row ">
-                		<?php foreach ($detalhes_full['elenco']['cast'] as $elenco) { ?>
+                		<?php foreach ($detalhes_full->elenco->cast as $elenco) { ?>
                 		<?php if ($elenco['profile_path'] != null && $elenco['profile_path'] != '') { ?>
                 		<div class="col-12 col-md-6 col-lg-6 col-xl-4 ">
                    			 <div class="item-listing-container-skrn">
@@ -116,7 +117,7 @@
             <h2>Filmes Semelhantes</h2>
             <div class="row">
 
-                <?php foreach ($detalhes_full['similar']['results'] as $filmes_similares) { ?>
+                <?php foreach ($detalhes_full->similar->results as $filmes_similares) { ?>
                 <?php if ($filmes_similares['poster_path'] != null && $filmes_similares['poster_path'] != '') { ?>
                 <div class="col-12 col-md-6 col-lg-6 col-xl-4">
                     <div class="item-listing-container-skrn">

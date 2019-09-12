@@ -19,4 +19,13 @@ class Usuario extends CI_Controller
         $this->load->view('usuario/entrar',$data);
     }
 
+    public function cadastre()
+    {
+        $data['generos'] = $this->filme_model->listaDeGeneros();
+         $data['logado'] = false;
+        $this->load->view('hooks/menu_lateral',$data);
+
+        $this->load->view('usuario/cadastre',$data);
+    }
+
 }

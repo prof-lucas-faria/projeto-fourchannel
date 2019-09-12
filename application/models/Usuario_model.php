@@ -17,21 +17,27 @@ class Usuario_model_model extends CI_Model
             'telefone' => $dados['pessoa']['telefone'],
             'sexo' => $dados['pessoa']['sexo'],
         );
+        
+        $verificaPessoa = $this->db->insert('pessoas', $$pessoa);
+        $insertId = $this->db->insert_id();
+        
         $usuario = array(
             'nome_usuario', $dados['usuario']['nome_usuario'],
             'email', $dados['usuario']['email'],
             'senha', $dados['usuario']['senha'],
             'foto', $dados['usuario']['foto'],
-            'pessoa_idpessoa', $dados['usuario']['pessoa_idpessoa'],
+            'pessoa_idpessoa', $insertId,
         );
 
-        if ($this->db->insert('pessoas', $$pessoa) && $this->db->insert('usuarios', $usuario)) {
+        $verificaUsuario = $this->db->insert('usuarios', $usuario);
+
+        if ($verificaPessoa && $verificaUsuario) {
             return true;
         }
         return false;
     }
 
-    public function atualizarUsuario($dados,$id)
+    public function atualizarUsuario($dados, $id)
     {
         $pessoa = array(
             'nome' => $dados['pessoa']['nome'],
@@ -48,9 +54,9 @@ class Usuario_model_model extends CI_Model
         );
 
         $this->db->where('id', $id);
-        
-        if($this->db->update('pessoas', $pessoa) && $this->db->update('usuarios', $usuario)){
-          return true;
+
+        if ($this->db->update('pessoas', $pessoa) && $this->db->update('usuarios', $usuario)) {
+            return true;
         }
         return false;
     }

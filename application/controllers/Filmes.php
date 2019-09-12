@@ -12,6 +12,7 @@ class Filmes extends CI_Controller
 
   public function index()
   {
+    $data['logado'] = false;
     $data['generos'] = $this->listaDeGeneros();
     $this->load->view('hooks/menu_lateral',$data);
 
@@ -21,6 +22,7 @@ class Filmes extends CI_Controller
   }
   public function detalheFilmes($idFilme)
   {
+    $data['logado'] = false;
     $data['detalhes_full'] = $this->filmes($idFilme);
     $this->load->view('hooks/menu_lateral');
     $this->load->view('filmes/detalhe_filme', $data);

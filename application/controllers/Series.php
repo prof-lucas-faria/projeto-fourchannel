@@ -14,12 +14,14 @@ class Series extends CI_Controller
 
   public function index()
   {
-    $this->load->view('hooks/menu_lateral');
+    $data['logado'] = false;
+    $this->load->view('hooks/menu_lateral',$data);
     $this->load->view('series/home');
   }
   public function detalheSerie($idSerie)
   {
-    $this->load->view('hooks/menu_lateral');
+    $data['logado'] = false;
+    $this->load->view('hooks/menu_lateral',$data);
     $this->load->view('series/detalhe_series');
   }
 

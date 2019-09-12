@@ -17,10 +17,10 @@ class Usuario_model_model extends CI_Model
             'telefone' => $dados['pessoa']['telefone'],
             'sexo' => $dados['pessoa']['sexo'],
         );
-        
+
         $verificaPessoa = $this->db->insert('pessoas', $$pessoa);
         $insertId = $this->db->insert_id();
-        
+
         $usuario = array(
             'nome_usuario', $dados['usuario']['nome_usuario'],
             'email', $dados['usuario']['email'],
@@ -61,6 +61,13 @@ class Usuario_model_model extends CI_Model
         return false;
     }
 
+    public function exibirInformacoesDoUsuario($id)
+    {
+        $this->db->select('*');
+        $this->db->from('pessoas');
+        $this->db->join('usuarios', 'usuarios.pessoa_idpessoa = pessoas.idpessoa');
+        return $this->db->get();
+    }
     public function adicionarSerieAoUsuario($dados)
     {
         # code...

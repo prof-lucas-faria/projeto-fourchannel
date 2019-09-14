@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Usuario_model_model extends CI_Model
+class Usuario_model extends CI_Model
 {
 
     public function __construct()
@@ -18,15 +18,16 @@ class Usuario_model_model extends CI_Model
             'sexo' => $dados['pessoa']['sexo'],
         );
 
-        $verificaPessoa = $this->db->insert('pessoas', $$pessoa);
+        $verificaPessoa = $this->db->insert('pessoas', $pessoa);
+
         $insertId = $this->db->insert_id();
 
         $usuario = array(
-            'nome_usuario', $dados['usuario']['nome_usuario'],
-            'email', $dados['usuario']['email'],
-            'senha', $dados['usuario']['senha'],
-            'foto', $dados['usuario']['foto'],
-            'pessoa_idpessoa', $insertId,
+            'nome_usuario' => $dados['usuario']['nome_usuario'],
+            'email' => $dados['usuario']['email'],
+            'senha' => $dados['usuario']['senha'],
+            'foto' => $dados['usuario']['foto'],
+            'pessoa_idpessoa' => $insertId,
         );
 
         $verificaUsuario = $this->db->insert('usuarios', $usuario);
@@ -66,8 +67,20 @@ class Usuario_model_model extends CI_Model
         $this->db->select('*');
         $this->db->from('pessoas');
         $this->db->join('usuarios', 'usuarios.pessoa_idpessoa = pessoas.idpessoa');
+        $this->db->where('pessoas.idpessoa', $id);
         return $this->db->get();
     }
+
+    public function buscarUsuario($dados)
+    {
+        $this->db->select('*');
+        $this->db->where('email', $dados['email']);
+        $this->db->where('senha', $dados['senha']);
+        $this->db->from('usuarios');
+        $consulta =$this->db->get();
+        return $consulta->result();
+    }
+
     public function adicionarSerieAoUsuario($dados)
     {
         # code...

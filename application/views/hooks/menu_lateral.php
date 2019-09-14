@@ -168,8 +168,7 @@
 		<nav id="sidebar-nav"><!-- Add class="sticky-sidebar-js" for auto-height sidebar -->
             <ul id="vertical-sidebar-nav" class="sf-menu">
             <li class="normal-item-pro current-menu-item">
-                <a href="/projeto-fourchannel/index.php/Filmes/">
-
+                <a href="/projeto-fourchannel/index.php/Filmes/index/1">
 						<span class="icon-Reel"></span>
 				  Filmes
 

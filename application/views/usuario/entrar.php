@@ -7,27 +7,26 @@
         </div>
     </div><!-- close .container -->
 
-   
 
     <div id="pricing-plans-background-image">
         <div class="container">
             <div class="registration-steps-page-container">
 
-                <form class="registration-steps-form">
+                <form class="registration-steps-form" action="<?= base_url()?>index.php/Usuario/entrar" method="post">
 
                     <div class="registration-social-login-container">
 
                         <div class="form-group">
                             <label for="full-name" class="col-form-label">E-mail</label>
-                            <input type="text" class="form-control" id="full-name" placeholder="John Doe">
+                            <input type="text" class="form-control" name="email" >
                         </div>
                         <div class="form-group">
                             <label for="email" class="col-form-label">Senha</label>
-                            <input type="text" class="form-control" id="email" placeholder="jondoe@gmail.com">
+                            <input type="text" class="form-control" name="senha" >
                         </div>
                        
                         <div class="clearfix"></div>
-						<a href="<?= base_url()?>index.php/Usuario/" class="btn btn-green-pro">Continue</a>
+						<input type="submit" class="btn btn-green-pro" value="Entrar"/>
 						<a href="<?= base_url()?>index.php/Usuario/cadastre">registre-se</a>
                     </div><!-- close .registration-social-login-container -->
                     <div class="form-group last-form-group-continue">

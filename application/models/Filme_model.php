@@ -10,9 +10,9 @@ class Filme_model extends CI_Model {
     parent::__construct();
   }
 
-  public function listarFilmesPopulares()
+  public function listarFilmesPopulares($pagina)
   {
-   return (object) $this->tmdb->getPopularMovies();
+   return (object) $this->tmdb->getPopularMovies($pagina);
   }
 
   public function listarNowPlaying()

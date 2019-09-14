@@ -1,4 +1,3 @@
-
 <div id="content-pro">
 
     <div class="container">
@@ -11,48 +10,50 @@
         <div class="container">
             <div class="registration-steps-page-container">
 
-                <form class="registration-steps-form">
+                <form class="registration-steps-form" method="post" action="<?=base_url()?>index.php/Usuario/salvarFormulario">
 
                     <div class="registration-social-login-container">
 
                         <div class="form-group">
                             <label for="full-name" class="col-form-label">Nome</label>
-                            <input type="text" class="form-control" id="full-name" placeholder="John Doe">
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="col-form-label">Sobrenome</label>
-                            <input type="text" class="form-control" id="email" placeholder="jondoe@gmail.com">
-						</div>
-						
-						<div class="form-group">
-                            <label for="email" class="col-form-label">Nome de Usuario</label>
-                            <input type="text" class="form-control" id="email" placeholder="jondoe@gmail.com">
+                            <input type="text" class="form-control" name="nome">
                         </div>
                        
-            
-					<div class="form-group">
+                        <div class="form-group">
+                            <label for="email" class="col-form-label">Nome de Usuario</label>
+                            <input type="text" class="form-control" name="nome_usuario">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="col-form-label">Data de nascimento</label>
+                            <input type="date" class="form-control" name="data_nascimento">
+                        </div>
+
+
+                        <div class="form-group">
                             <label for="full-name" class="col-form-label">Telefone</label>
-                            <input type="text" class="form-control" id="full-name" placeholder="John Doe">
+                            <input type="text" class="form-control" name="telefone">
                         </div>
                         <div class="form-group">
                             <label for="email" class="col-form-label">Email</label>
-                            <input type="text" class="form-control" id="email" placeholder="jondoe@gmail.com">
-						</div>
-						<div class="form-group">
-                            <label for="full-name" class="col-form-label">sexo</label>
-                            <input type="text" class="form-control" id="full-name" placeholder="John Doe">
+                            <input type="text" class="form-control" name="email">
                         </div>
-						<div class="form-group">
+                        <div class="form-group">
+                            <label for="full-name" class="col-form-label">sexo</label>
+                            <select class="form-control" name="sexo" id="sexo">
+                                <option value="M">Masculino</option>
+                                <option value="F">Feminino</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <div class="row">
                                 <div class="col">
                                     <label for="password" class="col-form-label">Senha</label>
-                                    <input type="password" class="form-control" id="password"
-                                        placeholder="&middot;&middot;&middot;&middot;&middot;&middot;">
+                                    <input type="password" class="form-control" name="senha">
                                 </div>
                                 <div class="col">
                                     <label for="confirm-password" class="col-form-label">&nbsp;</label>
-                                    <input type="password" class="form-control" id="confirm-password"
-                                        placeholder="Confirm Password">
+                                    <input type="password" class="form-control" name="conf_senha">
                                 </div>
                             </div>
                         </div>
@@ -60,8 +61,8 @@
 
                     <div class="clearfix"></div>
                     <div class="form-group last-form-group-continue">
-                        <a href="signup-step3.html" class="btn btn-green-pro">Cadastre-se</a>
-                        <a href="<?= base_url()?>index.php/Usuario/" class="btn btn-green-pro">já tenho conta</a>
+                        <input type="submit" class="btn btn-green-pro" value="Cadastre-se"/>
+                        <a href="<?=base_url()?>index.php/Usuario/" >já tenho conta</a>
                         <div class="clearfix"></div>
                     </div>
                 </form>

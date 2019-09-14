@@ -89,14 +89,12 @@
 			<div id="mobile-bars-icon-pro" class="noselect"><i class="fas fa-bars"></i></div>
 
 
-
-
 			<div id="header-user-profile">
 				<div id="header-user-profile-click" class="noselect">
 					<img src="<?=base_url()?>assets/images/demo/user-profile.jpg" alt="Suzie">
-					<div id="header-username"><?=$logado == true ? 'nome do usuario' :  '<a href='.base_url().'index.php/Usuario>Entrar<a/>'?></div><i class="fas fa-angle-down"></i>
+					<div id="header-username"><?= $_SESSION['status'] == true ?  $_SESSION['usuario'][0]->nome_usuario : '<a href=' . base_url() . 'index.php/Usuario>Entrar<a/>'?></div><i class="fas fa-angle-down"></i>
 				</div><!-- close #header-user-profile-click -->
-				<?php if ($logado) {?>
+				<?php if ($_SESSION['status'] == true) {?>
 				<div id="header-user-profile-menu">
 					<ul>
 
@@ -168,7 +166,7 @@
 		<nav id="sidebar-nav"><!-- Add class="sticky-sidebar-js" for auto-height sidebar -->
             <ul id="vertical-sidebar-nav" class="sf-menu">
             <li class="normal-item-pro current-menu-item">
-                <a href="/projeto-fourchannel/index.php/Filmes/index/1">
+                <a href="/projeto-fourchannel/index.php/Filmes/">
 						<span class="icon-Reel"></span>
 				  Filmes
 

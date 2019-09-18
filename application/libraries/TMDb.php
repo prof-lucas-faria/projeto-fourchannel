@@ -148,6 +148,15 @@ class TMDb
         return $this->_makeCall('tv/' . $id . '/similar', $params);
     }
 
+    public function getTvdetalhes($id, $lang = 'pt-BR')
+    {
+        $params = array(
+          
+            'language' => $lang
+        );
+        return $this->_makeCall('tv/' . $id , $params);
+    }
+
     public function getGroupEpsode($id, $lang = 'pt-BR')
     {
         $params = array(
@@ -427,6 +436,18 @@ class TMDb
             'with_genres' => $genreId
         );
         return $this->_makeCall('discover/movie', $param);
+
+    } public function getTvForGenre(int $genreId, $page)
+    {
+        $param = array(
+            'language' => 'pt-BR',
+            'sort_by' => 'popularity.desc',
+            'include_adult' => false,
+            'include_video' => false,
+            'page' => $page,
+            'with_genres' => $genreId
+        );
+        return $this->_makeCall('discover/tv', $param);
     }
     /**
      * Retrieve all id's from changed movies

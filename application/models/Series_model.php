@@ -24,8 +24,6 @@ class Series_model extends CI_Model {
     $dados = array(
       "elenco" => $this->tmdb->getCredits($idSerie),
       "detalhes" => $this->detalheSerie($idSerie),
-      "temporadas"=> $this->detalheTemporada($idSerie),
-      "criador" => $this->listarPessoaProducao($idSerie),
       "similar" => $this->listaDeSerieSimilares($idSerie),
       "videos" =>$this->listarSerie($idSerie),
       "reviews" => $this->listaDeReviews($idSerie)

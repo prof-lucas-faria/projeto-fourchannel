@@ -18,7 +18,7 @@
 
 			<div class="content-sidebar-section">
 				<h4 class="content-sidebar-sub-header">Gêneros</h4>
-				<div class="content-sidebar-short-description">Comédia/Ação/Drama</div>
+				<div class="content-sidebar-short-description"><?= $detalhes_full['detalhes']['genres'] ?></div>
 			</div><!-- close .content-sidebar-section -->
 			
 			<div class="content-sidebar-section">
@@ -34,7 +34,7 @@
 
 			<div class="content-sidebar-section">
 				<h4 class="content-sidebar-sub-header">Duração do Episódio</h4>
-				<div class="content-sidebar-short-description">2 hr 43 min</div>
+				<div class="content-sidebar-short-description"><?= $detalhes_full['detalhes']['in_production'] ?></div>
 			</div><!-- close .content-sidebar-section -->
 
 			<div class="content-sidebar-section">
@@ -50,11 +50,7 @@
 				<?php }?>
         		<?php }?>
 			</div><!-- close .content-sidebar-section -->
-
-			
-			
-			
-			
+		</div>
 		</div><!-- close #content-sidebar-pro -->
 		
 <main id="col-main-with-sidebar">
@@ -89,8 +85,7 @@
 			</div><!-- close #movie-detail-rating -->
 			
 			<div class="dashboard-container">
-				
-				
+			
 				<div class="movie-details-section">
 					<h2>Resumo da Série</h2>
 					<p><?= $detalhes_full['detalhes']['overview'] ?></p>
@@ -99,19 +94,22 @@
 				<div class="movie-details-section">
 					<h2>Temporadas</h2>
 					<div class="row">
+					<?php foreach ($detalhes_full['detalhes']['seasons'] as $temporada) { ?>
+                		<?php if ($temporada['poster_path'] != null && $temporada['poster_path'] != '') { ?>
 						<div class="col-12 col-md-6 col-lg-6 col-xl-4">
 							<div class="item-listing-container-skrn">
-								<a href="#!"><img src="http://via.placeholder.com/507x672" alt="Cast"></a>
+							<a href="#!"><img src="https://image.tmdb.org/t/p/w500<?= $temporada['poster_path'] ?>" alt="Cast"></a>
 								<div class="item-listing-text-skrn item-listing-movie-casting">
-									<h6><a href="#!">1ª Temporada</a></h6>
-									<div class="movie-casting-sub-title">22 Episódios</div>
+								<h6><a href="#!"><?= $temporada['name'] ?></a></h6>
+								<div class="movie-casting-sub-title"><?= $temporada['episode_count'] ?> Episódio</div>
 								</div><!-- close .item-listing-text-skrn -->
 							</div><!-- close .item-listing-container-skrn -->
 						</div><!-- close .col -->
-						
+						<?php } ?>
+               		 	<?php } ?>
 					</div><!-- close .row -->
 				</div><!-- close .movie-details-section -->
-
+			
 				<div class="movie-details-section">
 					<h2>Criado por</h2>
 					<div class="row">
@@ -124,7 +122,7 @@
 								</div><!-- close .item-listing-text-skrn -->
 							</div><!-- close .item-listing-container-skrn -->
 						</div><!-- close .col -->
-						
+	
 					</div><!-- close .row -->
 				</div><!-- close .movie-details-section -->
 
@@ -160,40 +158,33 @@
 								</div><!-- close .item-listing-text-skrn -->
 							</div><!-- close .item-listing-container-skrn -->
 						</div><!-- close .col -->
-					
-						
 					</div><!-- close .row -->
 				</div><!-- close .movie-details-section -->
 	
+				<div class="movie-details-section">
+           			 <h2>Séries Similares Semelhantes</h2>
+            		<div class="row">
 
-
-		<div class="movie-details-section">
-            <h2>Séries Similares Semelhantes</h2>
-            <div class="row">
-
-                <?php foreach ($detalhes_full['similar']['results'] as $series_similares) { ?>
-                <?php if ($series_similares['poster_path'] != null && $series_similares['poster_path'] != '') { ?>
-                <div class="col-12 col-md-6 col-lg-6 col-xl-4">
-                    <div class="item-listing-container-skrn">
-                        <a href="<?= base_url() ?>index.php/Filmes/detalhesFilme/<?= $series_similares['id'] ?>"><img src="https://image.tmdb.org/t/p/w500<?= $series_similares['poster_path'] ?>" alt="Listing"></a>
-                        <div class="item-listing-text-skrn">
-                            <div class="item-listing-text-skrn-vertical-align">
-                                <h6><a href="<?= base_url() ?>index.php/Filmes/detalhesFilme/<?= $series_similares['id'] ?>"><?= $series_similares['name'] ?></a></h6>
-                                <div class="circle-rating-pro" data-value="0.<?= number_format($series_similares['vote_average']) ?>" data-animation-start-value="0.0" data-size="32" data-thickness="3" data-fill="{
+               			 <?php foreach ($detalhes_full['similar']['results'] as $series_similares) { ?>
+                		<?php if ($series_similares['poster_path'] != null && $series_similares['poster_path'] != '') { ?>
+               		 <div class="col-12 col-md-6 col-lg-6 col-xl-4">
+                   		 <div class="item-listing-container-skrn">
+                        		<a href="<?= base_url() ?>index.php/Filmes/detalhesFilme/<?= $series_similares['id'] ?>"><img src="https://image.tmdb.org/t/p/w500<?= $series_similares['poster_path'] ?>" alt="Listing"></a>
+                        		<div class="item-listing-text-skrn">
+                           			 <div class="item-listing-text-skrn-vertical-align">
+                                		<h6><a href="<?= base_url() ?>index.php/Filmes/detalhesFilme/<?= $series_similares['id'] ?>"><?= $series_similares['name'] ?></a></h6>
+                                			<div class="circle-rating-pro" data-value="0.<?= number_format($series_similares['vote_average']) ?>" data-animation-start-value="0.0" data-size="32" data-thickness="3" data-fill="{
 								                                                                                  &quot;color&quot;: &quot;#42b740&quot;
-								                                                                                }" data-empty-fill="#def6de" data-reverse="true"><span style="color:#42b740;"><?= $series_similares['vote_average'] ?></span></div>
-                            </div><!-- close .item-listing-text-skrn-vertical-align -->
-                        </div><!-- close .item-listing-text-skrn -->
-                    </div><!-- close .item-listing-container-skrn -->
-                </div><!-- close .col -->
+					                                                                 }" data-empty-fill="#def6de" data-reverse="true"><span style="color:#42b740;"><?= $series_similares['vote_average'] ?></span></div>
+																					 </div><!-- close .item-listing-text-skrn -->
+							</div><!-- close .item-listing-container-skrn -->
+						</div><!-- close .col -->
+					</div><!-- close .row -->
                 <?php } ?>
                 <?php } ?>
             </div><!-- close .movie-details-section -->
-				
 			</div><!-- close .dashboard-container -->
 		</main>
-		
-		
 		</div><!-- close #sidebar-bg-->
 		
 		<!-- Required Framework JavaScript -->

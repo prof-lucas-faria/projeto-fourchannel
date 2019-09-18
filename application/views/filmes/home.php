@@ -3,7 +3,7 @@
     <div class="flexslider progression-studios-dashboard-slider progression-studios-full-height-slider">
         <ul class="slides">
 
-        <?php foreach($populares['results'] as $listaInicial){?>
+        <?php foreach($populares->results as $listaInicial){?>
             <li class="progression_studios_animate_left">
                 <div class="progression-studios-slider-dashboard-image-background"
                     style="background-image:url(https://image.tmdb.org/t/p/original/<?= $listaInicial['backdrop_path']?>);">
@@ -19,7 +19,7 @@
                                 <div class="progression-studios-slider-dashboard-caption-width">
                                     <div class="progression-studios-slider-caption-align">
                                         
-                                        <h2><a href="3"><?= $listaInicial['title']?></a></h2>
+                                        <h2><a href="<?=base_url()?>index.php/Filmes/detalheFilmes/<?= $listaInicial['id']?>"><?= $listaInicial['title']?></a></h2>
 
                                         <p class="content-sidebar-sub-header"><?= $listaInicial['overview']?></p>
 
@@ -47,7 +47,7 @@
     </div><!-- close .progression-studios-slider - See /js/script.js file for options -->
 
     <ul class="dashboard-genres-pro">
-        <?php foreach($generos['genres'] as $listaDeGeneros){?>
+        <?php foreach($generos->genres as $listaDeGeneros){?>
         <li class="active">
             <img src="<?= base_url()?>assets/images/genres/<?= $listaDeGeneros['id']?>.png" alt="Drama">
             <h6><?= $listaDeGeneros['name']?></h6>
@@ -62,7 +62,7 @@
         <h4 class="heading-extra-margin-bottom">Populares</h4>
         <div class="row">
 
-        <?php foreach($populares['results'] as $listaDePopulares){?>
+        <?php foreach($populares->results as $listaDePopulares){?>
             <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                 <div class="item-listing-container-skrn">
                     <a href="<?=base_url()?>index.php/Filmes/detalheFilmes/<?= $listaDePopulares['id']?>"><img src="https://image.tmdb.org/t/p/original<?= $listaDePopulares['poster_path']?>"
@@ -81,14 +81,8 @@
                                 <?php }?>
         </div><!-- close .row -->
 
-        <ul class="page-numbers">
-            <li><a class="previous page-numbers" href="#!"><i class="fas fa-chevron-left"></i></a></li>
-            <li><span class="page-numbers current">1</span></li>
-            <li><a class="page-numbers" href="#!">2</a></li>
-            <li><a class="page-numbers" href="#!">3</a></li>
-            <li><a class="page-numbers" href="#!">4</a></li>
-            <li><a class="next page-numbers" href="#!"><i class="fas fa-chevron-right"></i></a></li>
-        </ul>
+        <?= $this->pagination->create_links(); ?>
+      
 
     </div><!-- close .dashboard-container -->
 </main>

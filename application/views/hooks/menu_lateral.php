@@ -18,7 +18,7 @@
 		<div id="sidebar-bg">
 
       <header id="videohead-pro" class="sticky-header">
-			<div id="video-logo-background"><a href="<?=base_url()?>index.php/Filmes"><img src="<?=base_url()?>assets/images/logo-video-layout.png" alt="Logo"></a></div>
+			<div id="video-logo-background"><a href="<?=base_url()?>index.php/Filmes"><img src="<?=base_url()?>assets/images/fourChannel.png" alt="Logo"></a></div>
 
 			<div id="video-search-header">
 				<div id="search-icon-more"></div>

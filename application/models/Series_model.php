@@ -25,12 +25,12 @@ class Series_model extends CI_Model {
       "elenco" => $this->tmdb->getCredits($idSerie),
       "detalhes" => $this->detalheSerie($idSerie),
       "similar" => $this->listaDeSerieSimilares($idSerie),
-      "videos" =>$this->listarSerie($idSerie),
+      "videos" =>$this->listarTraillers($idSerie),
       "reviews" => $this->listaDeReviews($idSerie)
     );
     return $dados;
   }
-  public function listarSerie($idSerie)
+  public function listarTraillers($idSerie)
   {
     return  $this->tmdb->getTvVideo($idSerie);
   }

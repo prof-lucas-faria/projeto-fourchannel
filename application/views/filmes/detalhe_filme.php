@@ -52,6 +52,7 @@
 
     </div><!-- close .content-sidebar-section -->
 		</div><!-- close #content-sidebar-pro -->
+		</div><!-- close #content-sidebar-pro -->
 		
 <main id="col-main-with-sidebar">
 		

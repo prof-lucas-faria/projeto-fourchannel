@@ -28,7 +28,7 @@
 						<div class="row">
 							<div class="col-sm extra-padding">
 								<h5>Type:</h5>
-
+						
 								<div class="row">
 									<div class="col-sm">
 										<label class="checkbox-pro-container">Movies
@@ -92,7 +92,7 @@
 			<div id="header-user-profile">
 				<div id="header-user-profile-click" class="noselect">
 					<img src="<?=base_url()?>assets/images/demo/user-profile.jpg" alt="Suzie">
-					<div id="header-username"><?= isset($_SESSION['status']) == true ?  isset($_SESSION['usuario'][0]->nome_usuario) : '<a href=' . base_url() . 'index.php/Usuario>Entrar<a/>'?></div><i class="fas fa-angle-down"></i>
+					<div id="header-username"><?= isset($_SESSION['status']) == true ?  $_SESSION['usuario'][0]->nome_usuario : '<a href=' . base_url() . 'index.php/Usuario>Entrar<a/>'?></div><i class="fas fa-angle-down"></i>
 				</div><!-- close #header-user-profile-click -->
 				<?php if (isset($_SESSION['status']) == true) {?>
 				<div id="header-user-profile-menu">
@@ -102,7 +102,7 @@
 						<li><a href="dashboard-favorites.html"><span class="icon-Favorite-Window"></span>My Favorites</a></li>
 						<li><a href="dashboard-account.html"><span class="icon-Gears"></span>Account Details</a></li>
 						<li><a href="#!"><span class="icon-Life-Safer"></span>Help/Support</a></li>
-						<li><a href="index.html"><span class="icon-Power-3"></span>Log Out</a></li>
+						<li><a href="<?= base_url()?>index.php/Usuario/sair"><span class="icon-Power-3"></span>Log Out</a></li>
 					</ul>
 				</div><!-- close #header-user-profile-menu -->
 				<?php }?>

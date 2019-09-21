@@ -21,21 +21,70 @@ class Usuario extends CI_Controller
 
     public function home()
     {
-        $data['logado'] = false;
-        $this->load->view('hooks/menu_lateral', $data);
-        $this->load->view('hooks/lateral_usuario', $data);
+        $this->verificaSessao();
+
+        $this->load->view('hooks/menu_lateral');
+        $this->load->view('hooks/lateral_usuario');
         $this->load->view('usuario/home');
     }
 
     public function cadastre()
     {
         $data['generos'] = $this->filme_model->listaDeGeneros();
-      
+
         $this->load->view('hooks/menu_lateral', $data);
 
         $this->load->view('usuario/cadastre', $data);
     }
 
+   
+    public function entrar()
+    {
+        // session_destroy();
+        $this->load->model("Usuario_model");
+
+        $usuario = $this->Usuario_model->buscarUsuario(
+            array('email' => $this->input->post('email'),
+                'senha' => md5($this->input->post('senha')
+                ),
+            )
+        );
+        if (count($usuario) == 1) {
+
+            $_SESSION['status'] = array('logado' => true);
+            $_SESSION['usuario'] = $usuario;
+
+            echo json_encode(array('url'=> base_url().'index.php/Usuario/home'));
+        }else{
+            echo json_encode(array('status'=>'fail','mensagem'=>'Usuario inválido'));
+        }
+
+    }
+
+    public function perfil()
+    {
+        $this->verificaSessao();
+
+        $data['generos'] = $this->filme_model->listaDeGeneros();
+
+        $this->load->view('hooks/menu_lateral', $data);
+        $this->load->view('hooks/lateral_usuario', $data);
+        $this->load->view('usuario/perfil', $data);
+    }
+
+    // form atualizar perfil
+    public function atualizarEmail()
+    {
+        # code...
+    }
+    // form atualizar perfil
+    public function atualizarInformacoesConta()
+    {
+        # code...
+    }
+
+
+    //form de cadastro
     public function salvarFormulario()
     {
 
@@ -64,33 +113,20 @@ class Usuario extends CI_Controller
         }
 
     }
-    public function entrar()
+    
+    public function sair()
     {
-       // session_destroy();
-        $this->load->model("Usuario_model");
-
-        $usuario = $this->Usuario_model->buscarUsuario(
-            array('email' => $this->input->post('email'),
-                'senha' => md5($this->input->post('senha')
-                ),
-            )
-        );
-        if (count($usuario) == 1) {
-           
-            $_SESSION['status'] =array('logado'=>true);
-            $_SESSION['usuario'] =$usuario ;
-
-            redirect('Usuario/home');
-        }
-
+        unset($_SESSION['status']);
+        unset($_SESSION['usuario']);
+        session_destroy();
+        //    $this->session->destroi();
+        redirect('Usuario/home');
     }
 
-    public function perfil()
+    public function verificaSessao()
     {
-        $data['generos'] = $this->filme_model->listaDeGeneros();
-      
-        $this->load->view('hooks/menu_lateral', $data);
-        $this->load->view('hooks/lateral_usuario', $data);
-        $this->load->view('usuario/perfil', $data);
+        if (!(isset($_SESSION['usuario'])) || !(isset($_SESSION['status']))) {
+            header("Location:" . base_url() . "index.php/Usuario");
+        }
     }
 }

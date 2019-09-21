@@ -3,8 +3,8 @@
 			<div id="content-sidebar-info">
 				<img src="http://via.placeholder.com/400x498" alt="Suzie">
 				<div id="profile-sidebar-name">
-					<h5><?= isset($_SESSION['usuario'][0]->nome_usuario)?></h5>
-					<h6><?= isset$_SESSION['usuario'][0]->email)?></h6>
+					<h5><?= $_SESSION['usuario'][0]->nome_usuario?></h5>
+					<h6><?= $_SESSION['usuario'][0]->email?></h6>
 				</div>
 				<div id="profile-sidebar-gradient"></div>
 			

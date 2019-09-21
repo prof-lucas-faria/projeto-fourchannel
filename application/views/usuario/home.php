@@ -2,13 +2,13 @@
 		<main id="col-main-with-sidebar">
 			
 			<div class="dashboard-container">
-				
+			
 				<ul class="dashboard-sub-menu">
 					<li class=""><a href="<?= base_url()?>index.php/Usuario/home">Home</a></li>
 					<li class=""><a href="<?= base_url()?>index.php/Usuario/perfil">Editar perfil</a></li>
 				</ul><!-- close .dashboard-sub-menu -->
 				
-				<h1>Recomendações</h1>
+				<h1>Recem assistidos</h1>
 				<div class="row">
 					<div class="col-12 col-md-6 col-lg-6 col-xl-4">
 						<div class="item-listing-container-skrn">

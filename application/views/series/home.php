@@ -18,7 +18,7 @@
                                         <div class="progression-studios-slider-dashboard-caption-width">
                                     <div class="progression-studios-slider-caption-align">
                                         
-                                        <h2><a href="3"><?= $listaInicial['name']?></a></h2>
+                                        <h2><a href="<?=base_url()?>index.php/Series/detalheSeries/<?= $listaInicial['id']?>"><?= $listaInicial['name']?></a></h2>
 
                                         <p class="content-sidebar-sub-header"><?= $listaInicial['overview']?></p>
 

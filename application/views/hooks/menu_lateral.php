@@ -18,7 +18,7 @@
 		<div id="sidebar-bg">
 
       <header id="videohead-pro" class="sticky-header">
-			<div id="video-logo-background"><a href="<?=base_url()?>index.php/Filmes"><img src="<?=base_url()?>assets/images/fourChannel.png" alt="Logo"></a></div>
+			<div id="video-logo-background"><a href="<?=base_url()?>index.php/Filmes"><img src="<?=base_url()?>assets/images/CDR/fourChannel.png" alt="Logo"></a></div>
 
 			<div id="video-search-header">
 				<div id="search-icon-more"></div>
@@ -27,31 +27,21 @@
 					<form id="video-search-header-filtering-padding">
 						<div class="row">
 							<div class="col-sm extra-padding">
-								<h5>Type:</h5>
+								<h5>Tipo:</h5>
 
 								<div class="row">
 									<div class="col-sm">
-										<label class="checkbox-pro-container">Movies
+										<label class="checkbox-pro-container">Filmes
 										  <input type="checkbox" checked="checked" id="movies-type">
 										  <span class="checkmark-pro"></span>
 										</label>
 
-										<label class="checkbox-pro-container">TV Series
+										<label class="checkbox-pro-container">Series
 										  <input type="checkbox" id="tv-type">
 										  <span class="checkmark-pro"></span>
 										</label>
 									</div><!-- close .col -->
-									<div class="col">
-										<label class="checkbox-pro-container">New Arrivals
-										  <input type="checkbox" id="movie-type">
-										  <span class="checkmark-pro"></span>
-										</label>
-
-										<label class="checkbox-pro-container">Documentary
-										  <input type="checkbox" id="documentary-type">
-										  <span class="checkmark-pro"></span>
-										</label>
-									</div><!-- close .col -->
+									
 								</div><!-- close .row -->
 
 								<div class="dotted-dividers-pro"></div>
@@ -64,19 +54,8 @@
 								</select>
 								<div class="dotted-dividers-pro"></div>
 							</div><!-- close .col -->
-							<div class="col-sm extra-padding">
-								<h5>Country:</h5>
-								<select class="custom-select">
-								  <option selected>All Countries</option>
-
-								</select>
-								<div class="dotted-dividers-pro"></div>
-							</div><!-- close .col -->
-							<div class="col-sm extra-padding extra-range-padding">
-								<h5>Average Rating:</h5>
-				            <input class="range-example-rating-input" type="text" min="0" max="10" value="4,10" step="1" />
-								<!-- JS is under /js/script.jss -->
-							</div><!-- close .col -->
+							
+							
 						</div><!-- close .row -->
 						<div id="video-search-header-buttons">
 							<a href="#!" class="btn btn-green-pro">Filter Search</a>
@@ -114,40 +93,15 @@
 
 				<ul id="mobile-menu-pro">
 	            <li>
-	              <a href="dashboard-home.html">
+				<a href="<?=base_url()?>index.php/Series">
 						<span class="icon-Old-TV"></span>
-	                TV Series
+	                Série
 	              </a>
 	            <li>
 	            <li class="current-menu-item">
-	              <a href="dashboard-movies.html">
+				<a href="<?=base_url()?>index.php/Filmes">
 						<span class="icon-Reel"></span>
-	                Movies
-	              </a>
-	            </li>
-	            <li>
-	              <a href="dashboard-playlists.html">
-						<span class="icon-Movie"></span>
-	                Playlists
-	              </a>
-	            </li>
-	            <li>
-	              <a href="dashboard-new-arrivals.html">
-						<span class="icon-Movie-Ticket"></span>
-	                New Arrivals
-	              </a>
-	            </li>
-	            <li>
-	              <a href="dashboard-coming-soon.html">
-						<span class="icon-Clock"></span>
-	                Coming Soon
-	              </a>
-	            </li>
-	            <li>
-	              <a href="#!">
-						<i class="far fa-bell"></i>
-						<span class="user-notification-count">3</span>
-	                Notifications
+	                Filme
 	              </a>
 	            </li>
 				</ul>
@@ -166,30 +120,20 @@
 		<nav id="sidebar-nav"><!-- Add class="sticky-sidebar-js" for auto-height sidebar -->
             <ul id="vertical-sidebar-nav" class="sf-menu">
             <li class="normal-item-pro current-menu-item">
-                <a href="/projeto-fourchannel/index.php/Filmes/">
+                <a href="<?=base_url()?>index.php/Filmes">
 						<span class="icon-Reel"></span>
 				  Filmes
 
                 </a>
               </li>
               <li class="normal-item-pro">
-              <a href="/projeto-fourchannel/index.php/Series/">
+			  <a href="<?=base_url()?>index.php/Series">
               <span class="icon-Movie-Ticket"></span>
                    Series
                 </a>
               </li>
 
-              <li class="normal-item-pro">
-                <a href="dashboard-home.html">
-						<span class="icon-Old-TV"></span>
-                   TV
-                </a>
-              </li>
-              <li class="normal-item-pro">
-                <a href="dashboard-new-arrivals.html">
-						<span class="icon-Movie-Ticket"></span>
-                  Animes
-                </a>
+              
 
 
             </ul>

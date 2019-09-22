@@ -120,18 +120,20 @@
         </div><!-- close .movie-details-section -->
 
         <div class="movie-details-section">
-            <h2>Criado por</h2>
+            <h2>Criado por </h2>
             <div class="row">
+			<?php foreach ($detalhes_full['detalhes']['created_by'] as $criado) { ?>
+                <?php if ($criado['profile_path'] != null && $criado['profile_path'] != '') { ?>
                 <div class="col-12 col-md-6 col-lg-6 col-xl-4">
                     <div class="item-listing-container-skrn">
-                        <a href="#!"><img src="http://via.placeholder.com/507x672" alt="Cast"></a>
+                        <a href="#!"><img src="https://image.tmdb.org/t/p/w500<?= $criado['profile_path'] ?>" alt="Cast"></a>
                         <div class="item-listing-text-skrn item-listing-movie-casting">
-                            <h6><a href="#!">Robert Downey Jr.</a></h6>
-                            <div class="movie-casting-sub-title">Tony Stark</div>
+						<h6><a href="#!"><?= $criado['name'] ?></a></h6>
                         </div><!-- close .item-listing-text-skrn -->
                     </div><!-- close .item-listing-container-skrn -->
                 </div><!-- close .col -->
-
+				<?php } ?>
+                <?php } ?>
             </div><!-- close .row -->
         </div><!-- close .movie-details-section -->
 
@@ -159,15 +161,19 @@
                 <div class="movie-details-section">
                     <h2>Disponível em</h2>
                     <div class="row">
+					<?php foreach ($detalhes_full['detalhes']['networks'] as $disponivel) { ?>
+                	<?php if ($disponivel['logo_path'] != null && $disponivel['logo_path'] != '') { ?>
                         <div class="col-12 col-md-6 col-lg-6 col-xl-4">
                             <div class="item-listing-container-skrn">
-                                <a href="#!"><img src="http://via.placeholder.com/507x672" alt="Cast"></a>
+							<a href="#!"><img src="https://image.tmdb.org/t/p/w500<?= $disponivel['logo_path'] ?>"
+                                alt="Cast"></a>
                                 <div class="item-listing-text-skrn item-listing-movie-casting">
-                                    <h6><a href="#!">Robert Downey Jr.</a></h6>
-                                    <div class="movie-casting-sub-title">Tony Stark</div>
+								<h6><a href="#!"><?= $disponivel['name'] ?></a></h6>
                                 </div><!-- close .item-listing-text-skrn -->
                             </div><!-- close .item-listing-container-skrn -->
-                        </div><!-- close .col -->
+						</div><!-- close .col -->
+						<?php } ?>
+               			 <?php } ?>
                     </div><!-- close .row -->
                 </div><!-- close .movie-details-section -->
 
@@ -180,13 +186,13 @@
                         <div class="col-12 col-md-6 col-lg-6 col-xl-4">
                             <div class="item-listing-container-skrn">
                                 <a
-                                    href="<?= base_url() ?>index.php/Filmes/detalhesFilme/<?= $series_similares['id'] ?>"><img
+                                    href="<?= base_url() ?>index.php/Series/detalheSeries/<?= $series_similares['id'] ?>"><img
                                         src="https://image.tmdb.org/t/p/w500<?= $series_similares['poster_path'] ?>"
                                         alt="Listing"></a>
                                 <div class="item-listing-text-skrn">
                                     <div class="item-listing-text-skrn-vertical-align">
                                         <h6><a
-                                                href="<?= base_url() ?>index.php/Filmes/detalhesFilme/<?= $series_similares['id'] ?>"><?= $series_similares['name'] ?></a>
+                                                href="<?= base_url() ?>index.php/Series/detalheSeries/<?= $series_similares['id'] ?>"><?= $series_similares['name'] ?></a>
                                         </h6>
                                         <div class="circle-rating-pro"
                                             data-value="0.<?= number_format($series_similares['vote_average']) ?>"

@@ -123,6 +123,23 @@ class Usuario extends CI_Controller
         redirect('Usuario/home');
     }
 
+    public function pegaValoresFilmes()
+    {
+        $this->load->model("Usuario_model");
+        $dados = array(
+            'id'=> $this->input->post('id'),
+            'duracao'=> $this->input->post('duracao'),
+            'id_usuario' => $this->input->post('id_usuario'));
+
+        if($this->Usuario_model->adicionarFilmesAoUsuario($dados) == 1){
+            echo json_encode(array('status'=> 'ok'));
+        }else if($this->Usuario_model->adicionarFilmesAoUsuario($dados) == 2){
+            echo json_encode(array('status'=> 'fail'));
+        }else if($this->Usuario_model->adicionarFilmesAoUsuario($dados) == 3){
+            echo json_encode(array('status'=> 'ee','tipo'=>'error',));
+        }
+    }
+
     public function verificaSessao()
     {
         if (!(isset($_SESSION['usuario'])) || !(isset($_SESSION['status']))) {

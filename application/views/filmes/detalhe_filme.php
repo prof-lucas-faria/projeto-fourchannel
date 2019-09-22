@@ -64,7 +64,7 @@
             <h6>Nenhum Resultado</h6>
             <?php } ?>
         </ul>
-
+    </div>
     </div><!-- close .content-sidebar-section -->
 </div><!-- close #content-sidebar-pro -->
 </div><!-- close #content-sidebar-pro -->

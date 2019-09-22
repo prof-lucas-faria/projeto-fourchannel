@@ -171,6 +171,7 @@ class TMDb
             'language' => $lang
         );
         return $this->_makeCall('tv/' . $id . '/videos', $params);
+
     }
 
     /**

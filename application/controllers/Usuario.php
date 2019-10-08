@@ -8,6 +8,7 @@ class Usuario extends CI_Controller
     {
         parent::__construct();
         $this->load->model("filme_model");
+        $this->load->model("Usuario_model");
     }
 
     public function index()
@@ -41,7 +42,7 @@ class Usuario extends CI_Controller
     public function entrar()
     {
         // session_destroy();
-        $this->load->model("Usuario_model");
+      
 
         $usuario = $this->Usuario_model->buscarUsuario(
             array('email' => $this->input->post('email'),
@@ -66,7 +67,8 @@ class Usuario extends CI_Controller
         $this->verificaSessao();
 
         $data['generos'] = $this->filme_model->listaDeGeneros();
-
+        $data['usuario'] = $this->Usuario_model->exibirInformacoesDoUsuario($_SESSION['usuario'][0]->idusuario);
+    
         $this->load->view('hooks/menu_lateral', $data);
         $this->load->view('hooks/lateral_usuario', $data);
         $this->load->view('usuario/perfil', $data);

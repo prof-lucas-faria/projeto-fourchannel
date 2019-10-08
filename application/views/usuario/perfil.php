@@ -25,24 +25,24 @@
                         action="<?=base_url()?>index.php/Usuario/atualizarInformacoesConta">
 
                         <h5>Informações gerais</h5>
-
+                    
                         <div class="row">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="nome" class="col-form-label">Nome:</label>
-                                    <input type="text" class="form-control" name="nome" value="Suzie">
+                                    <input type="text" class="form-control" name="nome" value="<?= $usuario[0]->nome?>">
                                 </div>
                             </div><!-- close .col -->
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="last-name" class="col-form-label">Nome de Usuario:</label>
-                                    <input type="text" class="form-control" disabled="true" value="Smith">
+                                    <input type="text" class="form-control" disabled="true" value="<?= $usuario[0]->nome_usuario?>">
                                 </div>
                             </div><!-- close .col -->
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="last-name" class="col-form-label">E-mail:</label>
-                                    <input type="text" class="form-control" disabled="true" value="Smith@gmail.com">
+                                    <input type="text" class="form-control" disabled="true" value="<?= $usuario[0]->email?>">
                                 </div>
                             </div><!-- close .col -->
 
@@ -56,7 +56,7 @@
                                 <div class="form-group">
                                     <label for="e-mail" class="col-form-label">E-mail</label>
                                     <input type="text" class="form-control" id="email" name="email"
-                                        value="suzie@outlook.com">
+                                        value="<?= $usuario[0]->email?>">
                                 </div>
                             </div><!-- close .col -->
                             <div class="col-sm">
@@ -76,8 +76,7 @@
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="password" class="col-form-label">Senha atual:</label>
-                                    <input type="text" class="form-control" name="senha_atual"
-                                        value="&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;">
+                                    <input type="password" class="form-control" name="senha_atual">
                                 </div>
                             </div><!-- close .col -->
                             <div class="col-sm">

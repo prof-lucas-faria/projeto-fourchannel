@@ -64,12 +64,11 @@ class Usuario_model extends CI_Model
 
     public function exibirInformacoesDoUsuario($id)
     {
-        $this->db->select('*');
-        $this->db->from('pessoas');
-        $this->db->join('usuarios', 'usuarios.pessoa_idpessoa = pessoas.idpessoa');
-        $this->db->where('pessoas.idpessoa', $id);
-        return $this->db->get();
-    }
+       
+    $query = $this->db->query("SELECT * from pessoas INNER JOIN usuarios on pessoas.idpessoa = usuarios.pessoa_idpessoa WHERE pessoas.idpessoa = {$id}");
+       return $query->result();
+        //return $consulta;
+     }
 
     public function buscarUsuario($dados)
     {

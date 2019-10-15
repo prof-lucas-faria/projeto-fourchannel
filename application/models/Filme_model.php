@@ -31,13 +31,13 @@ class Filme_model extends CI_Model {
       "elenco" =>(object) $this->tmdb->getCredits($idFilme),
       "detalhes" =>(object) $this->detalheFilme($idFilme),
       "similar" =>(object) $this->listaDeFilmesSimilares($idFilme),
-      "videos" =>(object)$this->listarFilme($idFilme),
+      "videos" =>(object)$this->listarTraillerFilme($idFilme),
       "reviews" =>(object) $this->listaDeReviews($idFilme)
     );
     return (object)$dados; 
   }
 
-  public function listarFilme($idFilme)
+  public function listarTraillerFilme($idFilme)
   {
     return (object) $this->tmdb->getMovieVideo($idFilme);
   }
@@ -60,6 +60,11 @@ class Filme_model extends CI_Model {
   public function listaDeFilmesPorGenero($idGenero)
   {
     return (object) $this->tmdb->getMoviesForGenre();
+  }
+
+  public function buscarPorID($id)
+  {
+    return (object) $this->tmdb->getMovie($id);
   }
 
   public function buscarFilme($query)

@@ -85,7 +85,7 @@
                     <ul>
 
                         <li><a href="<?= base_url()?>index.php/Usuario/home"><span class="icon-User"></span>Meu Histórico</a></li>
-                        <li><a href="<?= base_url()?>http://localhost/projeto-fourchannel/index.php/Usuario/perfil"><span class="icon-Favorite-Window"></span>Perfil</a></li>
+                        <li><a href="<?= base_url()?>index.php/Usuario/perfil"><span class="icon-Favorite-Window"></span>Perfil</a></li>
        
                         <li><a href="<?= base_url()?>index.php/Usuario/sair"><span class="icon-Power-3"></span>Sair</a></li>
                     </ul>

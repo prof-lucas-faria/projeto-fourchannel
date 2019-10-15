@@ -7,6 +7,7 @@ class Usuario_model extends CI_Model
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('Filme_model');
     }
 
     public function adicionarUsuario($dados)
@@ -126,6 +127,40 @@ class Usuario_model extends CI_Model
             return 3;
         }
 
+    }
+
+    public function listarFilmesJaAssistidos($dados)
+    {
+     $query = $this->db->query(
+         "SELECT * from 
+         usuarios u 
+         inner JOIN estatisticas_filmes ef
+                 on u.idusuario = ef.usuarios_idusuario 
+         inner JOIN filmes ff 
+                on ef.filmes_idfilmes = ff.idfilmes 
+        WHERE u.idusuario = {$dados['id']}
+        ");
+        $informacoes = array();
+        foreach ($query->result() as $row)
+        {
+            $informacoes[] = $this->Filme_model->buscarPorID($row->id_filme);
+        }
+
+        return $informacoes;
+    }
+
+    public function qtdeHorasFilmesAssistidos($dados)
+    {
+        $query = $this->db->query(
+            "SELECT SUM(ff.duracao) as tempoFilme  from 
+            usuarios u 
+            inner JOIN estatisticas_filmes ef
+                    on u.idusuario = ef.usuarios_idusuario 
+            inner JOIN filmes ff 
+                   on ef.filmes_idfilmes = ff.idfilmes 
+           WHERE u.idusuario = {$dados['id']}
+           ");
+           return $query->result();
     }
 
     public function atualizarSerieUsuario($dados)

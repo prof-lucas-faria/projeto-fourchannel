@@ -70,6 +70,7 @@ class Usuario extends CI_Controller
 
         $data['generos'] = $this->filme_model->listaDeGeneros();
         $data['usuario'] = $this->Usuario_model->exibirInformacoesDoUsuario($_SESSION['usuario'][0]->idusuario);
+        $data['estatisticasFilmes'] =$this->Usuario_model->qtdeHorasFilmesAssistidos(array('id'=>$_SESSION['usuario'][0]->idusuario));
 
         $this->load->view('hooks/menu_lateral', $data);
         $this->load->view('hooks/lateral_usuario', $data);

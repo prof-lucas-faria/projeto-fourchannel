@@ -8,6 +8,7 @@ class Usuario extends CI_Controller
     {
         parent::__construct();
         $this->load->model("filme_model");
+        $this->load->model("Usuario_model");
     }
 
     public function index()
@@ -21,21 +22,74 @@ class Usuario extends CI_Controller
 
     public function home()
     {
-        $data['logado'] = false;
-        $this->load->view('hooks/menu_lateral', $data);
-        $this->load->view('hooks/lateral_usuario', $data);
-        $this->load->view('usuario/home');
+        $this->verificaSessao();
+
+        $data['filmes_assistidos']= (object)$this->Usuario_model->listarFilmesJaAssistidos(array('id'=>$_SESSION['usuario'][0]->idusuario));
+        $data['estatisticasFilmes'] =$this->Usuario_model->qtdeHorasFilmesAssistidos(array('id'=>$_SESSION['usuario'][0]->idusuario));
+        $this->load->view('hooks/menu_lateral');
+        $this->load->view('hooks/lateral_usuario',$data);
+        $this->load->view('usuario/home',$data);
     }
 
     public function cadastre()
     {
         $data['generos'] = $this->filme_model->listaDeGeneros();
-      
+
         $this->load->view('hooks/menu_lateral', $data);
 
         $this->load->view('usuario/cadastre', $data);
     }
 
+   
+    public function entrar()
+    {
+        // session_destroy();
+      
+
+        $usuario = $this->Usuario_model->buscarUsuario(
+            array('email' => $this->input->post('email'),
+                'senha' => md5($this->input->post('senha')
+                ),
+            )
+        );
+        if (count($usuario) == 1) {
+
+            $_SESSION['status'] = array('logado' => true);
+            $_SESSION['usuario'] = $usuario;
+
+            echo json_encode(array('url'=> base_url().'index.php/Usuario/home'));
+        }else{
+            echo json_encode(array('status'=>'fail','mensagem'=>'Usuario inválido'));
+        }
+
+    }
+
+    public function perfil()
+    {
+        $this->verificaSessao();
+
+        $data['generos'] = $this->filme_model->listaDeGeneros();
+        $data['usuario'] = $this->Usuario_model->exibirInformacoesDoUsuario($_SESSION['usuario'][0]->idusuario);
+        $data['estatisticasFilmes'] =$this->Usuario_model->qtdeHorasFilmesAssistidos(array('id'=>$_SESSION['usuario'][0]->idusuario));
+
+        $this->load->view('hooks/menu_lateral', $data);
+        $this->load->view('hooks/lateral_usuario', $data);
+        $this->load->view('usuario/perfil', $data);
+    }
+
+    // form atualizar perfil
+    public function atualizarEmail()
+    {
+        # code...
+    }
+    // form atualizar perfil
+    public function atualizarInformacoesConta()
+    {
+        # code...
+    }
+
+
+    //form de cadastro
     public function salvarFormulario()
     {
 
@@ -64,33 +118,37 @@ class Usuario extends CI_Controller
         }
 
     }
-    public function entrar()
+    
+    public function sair()
     {
-       // session_destroy();
-        $this->load->model("Usuario_model");
-
-        $usuario = $this->Usuario_model->buscarUsuario(
-            array('email' => $this->input->post('email'),
-                'senha' => md5($this->input->post('senha')
-                ),
-            )
-        );
-        if (count($usuario) == 1) {
-           
-            $_SESSION['status'] =array('logado'=>true);
-            $_SESSION['usuario'] =$usuario ;
-
-            redirect('Usuario/home');
-        }
-
+        unset($_SESSION['status']);
+        unset($_SESSION['usuario']);
+        session_destroy();
+        //    $this->session->destroi();
+        redirect('Usuario/home');
     }
 
-    public function perfil()
+    public function pegaValoresFilmes()
     {
-        $data['generos'] = $this->filme_model->listaDeGeneros();
-      
-        $this->load->view('hooks/menu_lateral', $data);
-        $this->load->view('hooks/lateral_usuario', $data);
-        $this->load->view('usuario/perfil', $data);
+        $this->load->model("Usuario_model");
+        $dados = array(
+            'id'=> $this->input->post('id'),
+            'duracao'=> $this->input->post('duracao'),
+            'id_usuario' => $this->input->post('id_usuario'));
+
+        if($this->Usuario_model->adicionarFilmesAoUsuario($dados) == 1){
+            echo json_encode(array('status'=> 'ok'));
+        }else if($this->Usuario_model->adicionarFilmesAoUsuario($dados) == 2){
+            echo json_encode(array('status'=> 'fail'));
+        }else if($this->Usuario_model->adicionarFilmesAoUsuario($dados) == 3){
+            echo json_encode(array('status'=> 'ee','tipo'=>'error',));
+        }
+    }
+
+    public function verificaSessao()
+    {
+        if (!(isset($_SESSION['usuario'])) || !(isset($_SESSION['status']))) {
+            header("Location:" . base_url() . "index.php/Usuario");
+        }
     }
 }

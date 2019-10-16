@@ -1,11 +1,10 @@
-
 <main id="col-main-with-sidebar">
 
     <div class="dashboard-container">
 
         <ul class="dashboard-sub-menu">
-            <li class=""><a href="<?= base_url()?>index.php/Usuario/home">Home</a></li>
-            <li class=""><a href="<?= base_url()?>index.php/Usuario/perfil">Editar perfil</a></li>
+            <li class=""><a href="<?=base_url()?>index.php/Usuario/home">Home</a></li>
+            <li class=""><a href="<?=base_url()?>index.php/Usuario/perfil">Editar perfil</a></li>
         </ul><!-- close .dashboard-sub-menu -->
 
 
@@ -22,29 +21,28 @@
                 </div><!-- close .col -->
                 <div class="col">
 
-                    <form class="account-settings-form">
+                    <form class="account-settings-form"
+                        action="<?=base_url()?>index.php/Usuario/atualizarInformacoesConta">
 
                         <h5>Informações gerais</h5>
-
+                    
                         <div class="row">
                             <div class="col-sm">
                                 <div class="form-group">
-                                    <label for="first-name" class="col-form-label">Nome:</label>
-                                    <input type="text" class="form-control" id="first-name" value="Suzie">
+                                    <label for="nome" class="col-form-label">Nome:</label>
+                                    <input type="text" class="form-control" name="nome" value="<?= $usuario[0]->nome?>">
                                 </div>
                             </div><!-- close .col -->
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="last-name" class="col-form-label">Nome de Usuario:</label>
-                                    <input type="text" class="form-control" disabled="true" id="last-name"
-                                        value="Smith">
+                                    <input type="text" class="form-control" disabled="true" value="<?= $usuario[0]->nome_usuario?>">
                                 </div>
                             </div><!-- close .col -->
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="last-name" class="col-form-label">E-mail:</label>
-                                    <input type="text" class="form-control" disabled="true" id="last-name"
-                                        value="Smith">
+                                    <input type="text" class="form-control" disabled="true" value="<?= $usuario[0]->email?>">
                                 </div>
                             </div><!-- close .col -->
 
@@ -57,13 +55,14 @@
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="e-mail" class="col-form-label">E-mail</label>
-                                    <input type="text" class="form-control" id="e-mail" value="suzie@outlook.com">
+                                    <input type="text" class="form-control" id="email" name="email"
+                                        value="<?= $usuario[0]->email?>">
                                 </div>
                             </div><!-- close .col -->
                             <div class="col-sm">
                                 <div class="form-group">
                                     <div><label for="button-change" class="col-form-label">&nbsp; &nbsp;</label></div>
-                                    <a href="#!" class="btn btn-form">Alterar E-mail</a>
+                                    <a href="#!" onclick="b()" class="btn btn-form">Alterar E-mail</a>
                                 </div>
                             </div><!-- close .col -->
 
@@ -77,14 +76,13 @@
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="password" class="col-form-label">Senha atual:</label>
-                                    <input type="text" class="form-control" id="password"
-                                        value="&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;">
+                                    <input type="password" class="form-control" name="senha_atual">
                                 </div>
                             </div><!-- close .col -->
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="new-password" class="col-form-label">Nova senha:</label>
-                                    <input type="text" class="form-control" id="new-password"
+                                    <input type="text" class="form-control" name="nova_senha"
                                         placeholder="Minimo 6 caracteres">
                                 </div>
                             </div><!-- close .col -->
@@ -92,7 +90,7 @@
                                 <div class="form-group">
                                     <div><label for="confirm-password" class="col-form-label">&nbsp; &nbsp;</label>
                                     </div>
-                                    <input type="text" class="form-control" id="confirm-password"
+                                    <input type="text" class="form-control" name="nova_senha_c"
                                         placeholder="Confirme a senha">
                                 </div>
                             </div><!-- close .col -->
@@ -102,7 +100,7 @@
 
                         <div class="clearfix"></div>
                         <hr>
-                        <p><a href="dashboard-account.html" class="btn btn-green-pro">Salvar</a></p>
+                        <p><a href="#" onclick="a()" class="btn btn-green-pro">Salvar</a></p>
                         <br>
                     </form>
 
@@ -115,21 +113,42 @@
 
 
 </div><!-- close #sidebar-bg-->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 
+<script>
+function a() {
+    Swal.fire({
+        position: 'top-end',
+        type: 'success',
+        title: 'Salvo com sucesso',
+        showConfirmButton: false,
+        timer: 2000
+    })
+}
+function b() {
+    Swal.fire({
+        position: 'top-end',
+        type: 'success',
+        title: 'Email atualizado com sucesso !!',
+        showConfirmButton: false,
+        timer: 2000
+    })
+}
+</script>
 <!-- Required Framework JavaScript -->
-<script src="<?= base_url()?>assets/js/libs/jquery-3.3.1.min.js"></script><!-- jQuery -->
-<script src="<?= base_url()?>assets/js/libs/popper.min.js" defer></script><!-- Bootstrap Popper/Extras JS -->
-<script src="<?= base_url()?>assets/js/libs/bootstrap.min.js" defer></script><!-- Bootstrap Main JS -->
+<script src="<?=base_url()?>assets/js/libs/jquery-3.3.1.min.js"></script><!-- jQuery -->
+<script src="<?=base_url()?>assets/js/libs/popper.min.js" defer></script><!-- Bootstrap Popper/Extras JS -->
+<script src="<?=base_url()?>assets/js/libs/bootstrap.min.js" defer></script><!-- Bootstrap Main JS -->
 <!-- All JavaScript in Footer -->
 
 <!-- Additional Plugins and JavaScript -->
-<script src="<?= base_url()?>assets/js/navigation.js" defer></script><!-- Header Navigation JS Plugin -->
-<script src="<?= base_url()?>assets/js/jquery.flexslider-min.js" defer></script><!-- FlexSlider JS Plugin -->
-<script src="<?= base_url()?>assets/js/jquery-asRange.min.js" defer></script><!-- Range Slider JS Plugin -->
-<script src="<?= base_url()?>assets/js/circle-progress.min.js" defer></script><!-- Circle Progress JS Plugin -->
-<script src="<?= base_url()?>assets/js/afterglow.min.js" defer></script><!-- Video Player JS Plugin -->
-<script src="<?= base_url()?>assets/js/script.js" defer></script><!-- Custom Document Ready JS -->
-<script src="<?= base_url()?>assets/js/script-dashboard.js" defer></script>
+<script src="<?=base_url()?>assets/js/navigation.js" defer></script><!-- Header Navigation JS Plugin -->
+<script src="<?=base_url()?>assets/js/jquery.flexslider-min.js" defer></script><!-- FlexSlider JS Plugin -->
+<script src="<?=base_url()?>assets/js/jquery-asRange.min.js" defer></script><!-- Range Slider JS Plugin -->
+<script src="<?=base_url()?>assets/js/circle-progress.min.js" defer></script><!-- Circle Progress JS Plugin -->
+<script src="<?=base_url()?>assets/js/afterglow.min.js" defer></script><!-- Video Player JS Plugin -->
+<script src="<?=base_url()?>assets/js/script.js" defer></script><!-- Custom Document Ready JS -->
+<script src="<?=base_url()?>assets/js/script-dashboard.js" defer></script>
 <!-- Custom Document Ready for Dashboard Only JS -->
 
 

@@ -2,7 +2,7 @@
 
     <div class="container">
         <div class="centered-headings-pro pricing-plans-headings">
-          
+
             <h1>Entrar</h1>
         </div>
     </div><!-- close .container -->
@@ -12,22 +12,22 @@
         <div class="container">
             <div class="registration-steps-page-container">
 
-                <form class="registration-steps-form" action="<?= base_url()?>index.php/Usuario/entrar" method="post">
+                <form class="registration-steps-form" method="post" id="form_entrar">
 
                     <div class="registration-social-login-container">
 
                         <div class="form-group">
                             <label for="full-name" class="col-form-label">E-mail</label>
-                            <input type="text" class="form-control" name="email" >
+                            <input type="text" class="form-control" name="email">
                         </div>
                         <div class="form-group">
                             <label for="email" class="col-form-label">Senha</label>
-                            <input type="text" class="form-control" name="senha" >
+                            <input type="text" class="form-control" name="senha">
                         </div>
-                       
+
                         <div class="clearfix"></div>
-						<input type="submit" class="btn btn-green-pro" value="Entrar"/>
-						<a href="<?= base_url()?>index.php/Usuario/cadastre">registre-se</a>
+                        <input type="submit" class="btn btn-green-pro" value="Entrar" />
+                        <a href="<?= base_url()?>index.php/Usuario/cadastre">registre-se</a>
                     </div><!-- close .registration-social-login-container -->
                     <div class="form-group last-form-group-continue">
                         <div class="clearfix"></div>
@@ -123,13 +123,49 @@
     </div><!-- close .modal-dialog -->
 </div><!-- close .modal -->
 
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 <!-- Required Framework JavaScript -->
 <script src="<?=base_url()?>assets/js/libs/jquery-3.3.1.min.js"></script><!-- jQuery -->
 <script src="<?=base_url()?>assets/js/libs/popper.min.js" defer></script><!-- Bootstrap Popper/Extras JS -->
 <script src="<?=base_url()?>assets/js/libs/bootstrap.min.js" defer></script><!-- Bootstrap Main JS -->
 <!-- All JavaScript in Footer -->
 
+<script type="text/javascript">
+var frm = $('#form_entrar');
+
+frm.submit(function(e) {
+
+    e.preventDefault();
+
+    $.ajax({
+        type: 'POST',
+        url: '<?= base_url()?>index.php/Usuario/entrar',
+        data: frm.serialize(),
+        success: function(data) {
+           
+            var json = JSON.parse(data)
+            if(json.status === 'fail'){
+            Swal.fire({
+                position: 'top-end',
+                type: 'error',
+                title: json.mensagem,
+                showConfirmButton: false,
+                timer: 1500
+            })
+            
+            }else{
+                window.location.href = json.url; 
+            }
+
+        },
+        error: function(data) {
+            
+          
+
+        },
+    });
+});
+</script>
 <!-- Additional Plugins and JavaScript -->
 <script src="<?=base_url()?>assets/js/navigation.js" defer></script><!-- Header Navigation JS Plugin -->
 <script src="<?=base_url()?>assets/js/jquery-asRange.min.js" defer></script><!-- Range Slider JS Plugin -->

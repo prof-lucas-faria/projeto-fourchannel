@@ -426,7 +426,7 @@ class TMDb
         return $this->_makeCall('genre/movie/list', $param);
     }
 
-    public function getMoviesForGenre(int $genreId, $page)
+    public function getMoviesForGenre( $genreId, $page)
     {
         $param = array(
             'language' => 'pt-BR',
@@ -438,7 +438,7 @@ class TMDb
         );
         return $this->_makeCall('discover/movie', $param);
 
-    } public function getTvForGenre(int $genreId, $page)
+    } public function getTvForGenre($genreId,$page = 1)
     {
         $param = array(
             'language' => 'pt-BR',

@@ -46,9 +46,14 @@ class Series_model extends CI_Model {
 
   }
 
-  public function listaDeSeriePorGenero($idGenero)
+  public function filtrodeSeriePorGenero( $genreId)
   {
-    return  $this->tmdb->getTvForGenre();
+    $dados = array(
+      "porgenero" => $this->tmdb->getTvForGenre( $genreId),
+      "detalhes" => $this->detalheSerie($genreId),
+     
+    );
+    return $dados;
   }
   public function listarPessoaProducao($idSerie)
   {

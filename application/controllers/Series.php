@@ -33,7 +33,13 @@ class Series extends CI_Controller
   {
   	
   }
+public function listarPorGenero($idSerie)
+{
+  $data['listaDeSeriePorGenero'] = $this->series_model->filtrodeSeriePorGenero($idSerie);
+  $this->load->view('hooks/menu_lateral');
+  $this->load->view('series/series_por_genero',$data);
 
+}
   public function populares()
   {
     return $this->series_model->listarPopulares();
@@ -44,7 +50,10 @@ class Series extends CI_Controller
   {
     return $this->series_model->listaDeGeneros();
   }
-
+  public function listaPorGeneros( $genreId)
+  {
+    return $this->series_model->listaDeSeriePorGenero( $genreId);
+  }
   public function detalheFullSerie($idSerie)
   {
     

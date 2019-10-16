@@ -44,12 +44,16 @@
     </div><!-- close .progression-studios-slider - See /js/script.js file for options -->
 
     <ul class="dashboard-genres-pro">
-        <?php foreach($generos['genres'] as $listaDeGeneros){?>
+        <?php foreach($generos['genres'] as $listar){?>
+       
         <li class="active">
-            <img src="<?= base_url()?>assets/images/genres/<?= $listaDeGeneros['id']?>.png" alt="Drama">
-            <h6><?= $listaDeGeneros['name']?></h6>
+        <a href="<?=base_url()?>index.php/Series/listarPorGenero/<?= $listar['id']?>" alt="Listing">
+
+            <img src="<?= base_url()?>assets/images/genres/<?= $listar['id']?>.png" alt="Drama">
+            </a>
+            <h6> <?= $listar['name']?></h6>          
         </li>
-        <?php }?>
+        <?php  }?>
     </ul>
 
     <div class="clearfix"></div>
@@ -65,7 +69,7 @@
                             alt="Listing"></a>
                     <div class="item-listing-text-skrn">
                         <div class="item-listing-text-skrn-vertical-align">
-                            <h6><a href="3"><?= $listaDePopulares['name']?></a></h6>
+                            <h6><a href="<?=base_url()?>index.php/Series/detalheSeries/<?= $listaDePopulares['id']?>"><?= $listaDePopulares['name']?></a></h6>
                             <div class="circle-rating-pro" data-value="0.<?= round($listaDePopulares['vote_average'])  ?>" data-animation-start-value="0.6"
                                 data-size="32" data-thickness="3" data-fill="{
 							          &quot;color&quot;: &quot;#42b740&quot;

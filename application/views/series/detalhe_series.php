@@ -1,18 +1,18 @@
 <div id="content-sidebar-pro">
 
     <div id="content-sidebar-image">
-        <img src="https://image.tmdb.org/t/p/original<?= $detalhes_full['detalhes']['poster_path'] ?>"
+        <img src="https://image.tmdb.org/t/p/original<?= $detalhes_full->detalhes->poster_path ?>"
             alt="Movie Poster">
     </div>
 
     <div class="content-sidebar-section">
-        <h2 class="content-sidebar-sub-header"><?= $detalhes_full['detalhes']['name'] ?></h2>
+        <h2 class="content-sidebar-sub-header"><?= $detalhes_full->detalhes->name ?></h2>
 
     </div><!-- close .content-sidebar-section -->
 
     <div class="content-sidebar-section">
         <h4 class="content-sidebar-sub-header">Lançamento de Temporadas</h4>
-        <div class="content-sidebar-short-description"><?php $now = new DateTime($detalhes_full['detalhes']['first_air_date']);
+        <div class="content-sidebar-short-description"><?php $now = new DateTime($detalhes_full->detalhes->first_air_date);
                                                         echo $now->format("d/m/Y")  ?></div>
     </div><!-- close .content-sidebar-section -->
 
@@ -20,7 +20,7 @@
         <h4 class="content-sidebar-sub-header">Gêneros</h4>
         <div class="content-sidebar-short-description">
             <ul class="progression-studios-slider-rating">
-                <?php foreach( $detalhes_full['detalhes']['genres'] as $generos){?>
+                <?php foreach( $detalhes_full->detalhes->genres as $generos){?>
 
                 <li><?= $generos['name']?></li>
                 <?php }?>
@@ -30,25 +30,25 @@
 
     <div class="content-sidebar-section">
         <h4 class="content-sidebar-sub-header">Temporadas</h4>
-        <div class="content-sidebar-short-description"><?= $detalhes_full['detalhes']['number_of_seasons'] ?></div>
+        <div class="content-sidebar-short-description"><?= $detalhes_full->detalhes->number_of_seasons?></div>
     </div><!-- close .content-sidebar-section -->
 
 
     <div class="content-sidebar-section">
         <h4 class="content-sidebar-sub-header">Episódios</h4>
-        <div class="content-sidebar-short-description"><?= $detalhes_full['detalhes']['number_of_episodes'] ?></div>
+        <div class="content-sidebar-short-description"><?= $detalhes_full->detalhes->number_of_episodes ?></div>
     </div><!-- close .content-sidebar-section -->
 
     
 
     <div class="content-sidebar-section">
         <h4 class="content-sidebar-sub-header">Em produção</h4>
-        <div class="content-sidebar-short-description"><?= $detalhes_full['detalhes']['in_production'] =='1'? 'Sim' :'Descontinuado' ?></div>
+        <div class="content-sidebar-short-description"><?= $detalhes_full->detalhes->in_production =='1'? 'Sim' :'Descontinuado' ?></div>
     </div><!-- close .content-sidebar-section -->
 
     <div class="content-sidebar-section">
         <h4 class="content-sidebar-sub-header">Diretor da Serie</h4>
-        <?php foreach($detalhes_full['elenco']['crew'] as $producao){?>
+        <?php foreach($detalhes_full->elenco->crew as $producao){?>
         <?php if($producao['department'] =="Directing" && $producao['job'] =="Director"){?>
         <div class="content-sidebar-short-description"><?= $producao['name']?></div>
         <?php }?>
@@ -60,13 +60,13 @@
 <main id="col-main-with-sidebar">
 
     <div id="movie-detail-header-pro"
-        style="background-image:url('https://image.tmdb.org/t/p/original/<?= $detalhes_full['detalhes']['backdrop_path'] ?>')">
+        style="background-image:url('https://image.tmdb.org/t/p/original/<?= $detalhes_full->detalhes->backdrop_path ?>')">
 
         <div id="movie-detail-header-media">
             <div class="dashboard-container">
                 <h5>Trailers</h5>
                 <div class="row">
-                    <?php foreach ($detalhes_full['videos']['results'] as $traillers) { ?>
+                    <?php foreach ($detalhes_full->videos->results as $traillers) { ?>
 
                     <div class="col-6 col-md-4 col-lg-4">
                         <div class="movie-detail-media-image">
@@ -96,13 +96,13 @@
 
         <div class="movie-details-section">
             <h2>Resumo da Série</h2>
-            <p><?= $detalhes_full['detalhes']['overview'] ?></p>
+            <p><?= $detalhes_full->detalhes->overview ?></p>
         </div><!-- close .movie-details-section -->
 
         <div class="movie-details-section">
             <h2>Temporadas</h2>
             <div class="row">
-                <?php foreach ($detalhes_full['detalhes']['seasons'] as $temporada) { ?>
+                <?php foreach ($detalhes_full->detalhes->seasons as $temporada) { ?>
                 <?php if ($temporada['poster_path'] != null && $temporada['poster_path'] != '') { ?>
                 <div class="col-12 col-md-6 col-lg-6 col-xl-4">
                     <div class="item-listing-container-skrn">
@@ -122,7 +122,7 @@
         <div class="movie-details-section">
             <h2>Criado por </h2>
             <div class="row">
-			<?php foreach ($detalhes_full['detalhes']['created_by'] as $criado) { ?>
+			<?php foreach ($detalhes_full->detalhes->created_by as $criado) { ?>
                 <?php if ($criado['profile_path'] != null && $criado['profile_path'] != '') { ?>
                 <div class="col-12 col-md-6 col-lg-6 col-xl-4">
                     <div class="item-listing-container-skrn">
@@ -141,7 +141,7 @@
         <div class="movie-details-section">
             <h2>Elenco</h2>
             <div class="row flex-row ">
-                <?php foreach ($detalhes_full['elenco']['cast'] as $elenco) { ?>
+                <?php foreach ($detalhes_full->elenco->cast as $elenco) { ?>
                 <?php if ($elenco['profile_path'] != null && $elenco['profile_path'] != '') { ?>
                 <div class="col-12 col-md-6 col-lg-6 col-xl-4 ">
                     <div class="item-listing-container-skrn">
@@ -161,7 +161,7 @@
                 <div class="movie-details-section">
                     <h2>Disponível em</h2>
                     <div class="row">
-					<?php foreach ($detalhes_full['detalhes']['networks'] as $disponivel) { ?>
+					<?php foreach ($detalhes_full->detalhes->networks as $disponivel) { ?>
                 	<?php if ($disponivel['logo_path'] != null && $disponivel['logo_path'] != '') { ?>
                         <div class="col-12 col-md-6 col-lg-6 col-xl-4">
                             <div class="item-listing-container-skrn">
@@ -181,7 +181,7 @@
                     <h2>Séries Similares Semelhantes</h2>
                     <div class="row">
 
-                        <?php foreach ($detalhes_full['similar']['results'] as $series_similares) { ?>
+                        <?php foreach ($detalhes_full->similar->results as $series_similares) { ?>
                         <?php if ($series_similares['poster_path'] != null && $series_similares['poster_path'] != '') { ?>
                         <div class="col-12 col-md-6 col-lg-6 col-xl-4">
                             <div class="item-listing-container-skrn">

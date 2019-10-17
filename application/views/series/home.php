@@ -2,7 +2,7 @@
 
     <div class="flexslider progression-studios-dashboard-slider progression-studios-full-height-slider">
         <ul class="slides">
-        <?php foreach($populares['results'] as $listaInicial){?>
+        <?php foreach($populares->results as $listaInicial){?>
             <li class="progression_studios_animate_left">
                 <div class="progression-studios-slider-dashboard-image-background"
                     style="background-image:url(https://image.tmdb.org/t/p/original<?= $listaInicial['backdrop_path']?>);">
@@ -44,7 +44,7 @@
     </div><!-- close .progression-studios-slider - See /js/script.js file for options -->
 
     <ul class="dashboard-genres-pro">
-        <?php foreach($generos['genres'] as $listar){?>
+        <?php foreach($generos->genres as $listar){?>
        
         <li class="active">
         <a href="<?=base_url()?>index.php/Series/listarPorGenero/<?= $listar['id']?>" alt="Listing">
@@ -62,7 +62,7 @@
 
         <h4 class="heading-extra-margin-bottom">Series Populares</h4>
         <div class="row">
-        <?php foreach($populares['results'] as $listaDePopulares){?>
+        <?php foreach($populares->results as $listaDePopulares){?>
             <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                 <div class="item-listing-container-skrn">
                     <a href="<?=base_url()?>index.php/Series/detalheSeries/<?= $listaDePopulares['id']?>"><img src="https://image.tmdb.org/t/p/original<?= $listaDePopulares['poster_path']?>"

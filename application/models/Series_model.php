@@ -1,4 +1,7 @@
 <?php
+
+
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Series_model extends CI_Model {
   public function __construct()
@@ -9,51 +12,56 @@ class Series_model extends CI_Model {
   {
     
   }
-  public function listarPopulares()
+  public function listarPopulares($pagina)
   {
-    return  $this->tmdb->getPopularTv();
+    /**return  $this->tmdb->getPopularTv();**/
+    return(object)  $this->tmdb->getPopularTv($pagina);
+
+
 
   }
   public function listaDeGeneros()
   {
-    return  $this->tmdb->getListGenres();
+    /**return  $this->tmdb->getListGenres();**/
+    return(object)  $this->tmdb->getListGenres();
+
   }
 
   public function detalhesFullSerie($idSerie)
   {
     $dados = array(
-      "elenco" => $this->tmdb->getCredits($idSerie),
-      "detalhes" => $this->detalheSerie($idSerie),
-      "similar" => $this->listaDeSerieSimilares($idSerie),
-      "videos" =>$this->listarTraillers($idSerie),
-      "reviews" => $this->listaDeReviews($idSerie)
+      "elenco" =>(object) $this->tmdb->getCredits($idSerie),
+      "detalhes" =>(object) $this->detalheSerie($idSerie),
+      "similar" =>(object) $this->listaDeSerieSimilares($idSerie),
+      "videos" =>(object)$this->listarTraillers($idSerie),
+      "reviews" =>(object) $this->listaDeReviews($idSerie)
     );
-    return $dados;
+    return(object)$dados;
   }
   public function listarTraillers($idSerie)
   {
-    return  $this->tmdb->getTvVideo($idSerie);
+    return(object)  $this->tmdb->getTvVideo($idSerie);
   }
 
   public function listaDeSerieSimilares($idSerie)
   {
-    return  $this->tmdb->getTvSimilar($idSerie);
+    return(object)  $this->tmdb->getTvSimilar($idSerie);
   }
 
   public function detalheSerie($idSerie)
   {
-    return $this->tmdb->getTvdetalhes($idSerie);
+    return(object) $this->tmdb->getTvdetalhes($idSerie);
 
   }
 
   public function filtrodeSeriePorGenero( $genreId)
   {
     $dados = array(
-      "porgenero" => $this->tmdb->getTvForGenre( $genreId),
-      "detalhes" => $this->detalheSerie($genreId),
+      "porgenero" =>(object) $this->tmdb->getTvForGenre( $genreId),
+      "detalhes" =>(object) $this->detalheSerie($genreId),
      
     );
-    return $dados;
+    return(object)$dados;
   }
   public function listarPessoaProducao($idSerie)
   {
@@ -72,8 +80,17 @@ class Series_model extends CI_Model {
 
   public function listaDeTrailers($idSerie)
   {
-        return  $this->tmdb->getTvVideo();
+        return(object)  $this->tmdb->getTvVideo();
 
+  }
+  public function buscarPorID($id)
+  {
+    return (object) $this->tmdb->getTv($id);
+  }
+
+  public function buscarSerie($query)
+  {
+    
   }
   
 }

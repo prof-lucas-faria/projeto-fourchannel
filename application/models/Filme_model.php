@@ -13,6 +13,7 @@ class Filme_model extends CI_Model {
   public function listarFilmesPopulares($pagina)
   {
    return (object) $this->tmdb->getPopularMovies($pagina);
+
   }
 
   public function listarNowPlaying()
@@ -52,7 +53,15 @@ class Filme_model extends CI_Model {
      return (object) $this->tmdb->getFilmsDetalhe($idFilme);
     
   }
-  
+    public function filtroDeFilmePorGenero( $genreId)
+    {
+        $dados = array(
+            "porgenero" =>(object) $this->tmdb->getMoviesForGenre( $genreId),
+            "detalhes" =>(object) $this->detalheFilme($genreId),
+
+        );
+        return(object)$dados;
+    }
   public function listaDeReviews($idFilme)
   {
   }
@@ -60,6 +69,7 @@ class Filme_model extends CI_Model {
   public function listaDeFilmesPorGenero($idGenero)
   {
     return (object) $this->tmdb->getMoviesForGenre();
+
   }
 
   public function buscarPorID($id)

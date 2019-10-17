@@ -63,9 +63,9 @@ class Series extends CI_Controller
   {
   	
   }
-public function listarPorGenero($idSerie)
+public function listarPorGenero($idGenero)
 {
-  $data['listaDeSeriePorGenero'] = $this->series_model->filtrodeSeriePorGenero($idSerie);
+  $data['listaDeSeriePorGenero'] = $this->series_model->filtrodeSeriePorGenero($idGenero);
   $this->load->view('hooks/menu_lateral');
   $this->load->view('series/series_por_genero',$data);
 

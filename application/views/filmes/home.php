@@ -52,7 +52,12 @@
     <ul class="dashboard-genres-pro">
         <?php foreach ($generos->genres as $listaDeGeneros) {?>
         <li class="active">
+        <a href="<?=base_url()?>index.php/Filmes/listarPorGenero/<?= $listaDeGeneros['id']?>" alt="Listing">
+
+        
             <img src="<?=base_url()?>assets/images/genres/<?=$listaDeGeneros['id']?>.png" alt="Drama">
+
+            </a>
             <h6><?=$listaDeGeneros['name']?></h6>
         </li>
         <?php }?>

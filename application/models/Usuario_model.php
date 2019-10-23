@@ -34,7 +34,7 @@ class Usuario_model extends CI_Model
         $verificaUsuario = $this->db->insert('usuarios', $usuario);
 
         if ($verificaPessoa && $verificaUsuario) {
-            return true;
+            return $insertId;
         }
         return false;
     }

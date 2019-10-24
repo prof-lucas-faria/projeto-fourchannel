@@ -68,11 +68,11 @@ class Filme_model extends CI_Model {
   {
   }
   
-  public function listaDeFilmesPorGenero($idGenero)
-  {
-    return (object) $this->tmdb->getMoviesForGenre($idGenero);
+//  public function listaDeFilmesPorGenero($idGenero)
+//  {
+//    return (object) $this->tmdb->getMoviesForGenre($idGenero);
 
-  }
+//  }
 
   public function buscarPorID($id)
   {

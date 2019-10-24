@@ -118,7 +118,7 @@
                                 <input type="hidden" id="idf" name="id" value="<?=$this->uri->segment('3');?>">
                                 <input type="hidden" name="duracao" id="duracao" class="duracao"
                                     value="<?=$temporada['episode_count'] * $detalhes_full->detalhes->episode_run_time[0]?>">
-                                <input type="hidden" name="id_usuario" value="<?=$_SESSION['usuario'][0]->idusuario?>">
+                                <input type="hidden" name="id_usuario" value="<?= isset($_SESSION['usuario'][0]->idusuario)?>">
    
                                     <?=empty($_SESSION['usuario']) == true ? '' : "<h4 class='content-sidebar-sub-header'><Button class='btn btn-success ' type='submit'>Adicionar a \n minha
 Biblioteca</Button></h4>"?>

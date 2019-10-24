@@ -13,7 +13,7 @@
         <input type="hidden" id="idf" name="id" value="<?= $this->uri->segment('3'); ?>">
         <input type="hidden" name="duracao" id="duracao" class="duracao"
             value="<?= $detalhes_full->detalhes->runtime ?>">
-            <input type="hidden" name="id_usuario" value="<?= $_SESSION['usuario'][0]->idusuario?>">
+            <input type="hidden" name="id_usuario" value="<?= isset($_SESSION['usuario'][0]->idusuario)?>">
             <div class="content-sidebar-section">
      
      <?= empty($_SESSION['usuario']) == true ? '': "<h4 class='content-sidebar-sub-header'><Button class='btn btn-success' type='submit'>Adicionar a minha

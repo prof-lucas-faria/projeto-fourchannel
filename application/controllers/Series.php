@@ -64,11 +64,15 @@ class Series extends CI_Controller
   {
   	
   }
-public function listarPorGenero($idSerie)
+public function listarPorGenero($idGenero)
 {
+<<<<<<< HEAD
   $data['listaDeSeriePorGenero'] = $this->series_model->filtrodeSeriePorGenero($idSerie);
   $data['populares'] = $this->populares(1);
   $data['generos'] = $this->listaDeGeneros();
+=======
+  $data['listaDeSeriePorGenero'] = $this->series_model->filtrodeSeriePorGenero($idGenero);
+>>>>>>> fbb7eb53743ec5311af0a5c2fa7422ce4becba7c
   $this->load->view('hooks/menu_lateral');
 
   $this->load->view('series/series_por_genero',$data);

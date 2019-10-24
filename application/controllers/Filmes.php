@@ -80,6 +80,7 @@ class Filmes extends CI_Controller
 
     public function listarPorGenero($idGenero)
     {
+        $data['listaDeFilmePorGenero'] = $this->filme_model->filtrodeSeriePorGenero($idGenero);
         $this->load->view('hooks/menu_lateral');
         $this->load->view('filmes/filmes_por_genero');
     }

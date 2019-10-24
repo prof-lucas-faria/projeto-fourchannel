@@ -23,7 +23,7 @@ class Usuario extends CI_Controller
     public function home()
     {
         $this->verificaSessao();
-
+   
         $data['filmes_assistidos']= (object)$this->Usuario_model->listarFilmesJaAssistidos(array('id'=>$_SESSION['usuario'][0]->idusuario));
         $data['estatisticasFilmes'] =$this->Usuario_model->qtdeHorasFilmesAssistidos(array('id'=>$_SESSION['usuario'][0]->idusuario));
         $this->load->view('hooks/menu_lateral');
@@ -109,10 +109,11 @@ class Usuario extends CI_Controller
                 'foto' => 'assets/images/demo/user-profile.jpg',
             ),
         );
-
-        if ($this->Usuario_model->adicionarUsuario($dados)) {
-            $this->session->set_userdata($dados);
-            redirect('Usuario/home');
+        $id =$this->Usuario_model->adicionarUsuario($dados);
+        if ($id) {
+            $_SESSION['usuario'] = $dados;
+            $_SESSION['usuario']['idusuario'] =$id;
+            redirect('Usuario');
         } else {
             redirect('Usuario/cadastre');
         }

@@ -78,9 +78,13 @@ class Filmes extends CI_Controller
         return $this->filme_model->listaDeGeneros();
     }
 
-    public function listarPorGenero($idGenero)
+    public function listarPorGenero($idFilme)
     {
-        return $this->filme_model->listaDeFilmesPorGenero( $idGenero);
+        $data['listaDeFilmesPorGenero'] = $this->filme_model->filtroDeFilmePorGenero($idFilme);
+        $data['populares'] = $this->filmesPopulares(1);
+        $data['generos'] = $this->listaDeGeneros();
+        $this->load->view('hooks/menu_lateral');
+        $this->load->view('filmes/filmes_por_genero', $data);
     }
 
     public function pesquisarFilme()

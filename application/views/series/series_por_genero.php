@@ -1,10 +1,68 @@
 <main id="col-main">
 
+<div class="flexslider progression-studios-dashboard-slider progression-studios-full-height-slider">
+        <ul class="slides">
+
+            <?php foreach ($populares->results as $listaInicial) {?>
+            <li class="progression_studios_animate_left">
+                <div class="progression-studios-slider-dashboard-image-background"
+                    style="background-image:url(https://image.tmdb.org/t/p/original/<?=$listaInicial['backdrop_path']?>);">
+                    <div class="progression-studios-slider-display-table">
+                        <div class="progression-studios-slider-vertical-align">
+
+                            <div class="container">
+                                <div class="circle-rating-pro" data-value="0.<?=round($listaInicial['vote_average'])?>"
+                                    data-animation-start-value="0.86" data-size="70" data-thickness="6" data-fill="{
+								          &quot;color&quot;: &quot;#42b740&quot;
+								        }" data-empty-fill="#def6de" data-reverse="true"><span
+                                        style="color:#42b740;"><?=$listaInicial['vote_average']?></span></div>
+
+                                <div class="progression-studios-slider-dashboard-caption-width">
+                                    <div class="progression-studios-slider-caption-align">
+
+                                        <h2><a
+                                                href="<?=base_url()?>index.php/Filmes/detalheFilmes/<?=$listaInicial['id']?>"><?=$listaInicial['name']?></a>
+                                        </h2>
+
+                                        <p class="content-sidebar-sub-header"><?=$listaInicial['overview']?></p>
+
+
+
+
+                                        <div class="clearfix"></div>
+
+
+
+                                    </div><!-- close .progression-studios-slider-caption-align -->
+                                </div><!-- close .progression-studios-slider-caption-width -->
+
+                            </div><!-- close .container -->
+
+                        </div><!-- close .progression-studios-slider-vertical-align -->
+                    </div><!-- close .progression-studios-slider-display-table -->
+
+                    <div class="progression-studios-slider-mobile-background-cover"></div>
+                </div><!-- close .progression-studios-slider-image-background -->
+            </li>
+
+            <?php }?>
+        </ul>
+    </div><!-- close .progression-studios-slider - See /js/script.js file for options -->
+
+    <ul class="dashboard-genres-pro">
+        <?php foreach ($generos->genres as $listaDeGeneros) {?>
+        <li class="active">
+            <img src="<?=base_url()?>assets/images/genres/<?=$listaDeGeneros['id']?>.png" alt="Drama">
+            <h6><?=$listaDeGeneros['name']?></h6>
+        </li>
+        <?php }?>
+    </ul>
 
     <div class="clearfix"></div>
 
-   
     <div class="dashboard-container">
+   
+
         <h4 class="heading-extra-margin-bottom">Series Por Genero </h4>
         <div class="row">
         <?php foreach($listaDeSeriePorGenero->porgenero->results as $listar){?>

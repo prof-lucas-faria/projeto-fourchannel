@@ -1,4 +1,5 @@
 <?php
+
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class Series extends CI_Controller
@@ -66,7 +67,10 @@ class Series extends CI_Controller
 public function listarPorGenero($idSerie)
 {
   $data['listaDeSeriePorGenero'] = $this->series_model->filtrodeSeriePorGenero($idSerie);
+  $data['populares'] = $this->populares(1);
+  $data['generos'] = $this->listaDeGeneros();
   $this->load->view('hooks/menu_lateral');
+
   $this->load->view('series/series_por_genero',$data);
 
 }

@@ -18,7 +18,7 @@ class Series extends CI_Controller
     $data['generos'] = $this->listaDeGeneros();
     $this->load->view('hooks/menu_lateral',$data);
 
-    $config['base_url'] = base_url() . 'index.php/Filmes/index/';
+    $config['base_url'] = base_url() . 'index.php/Series/index/';
     $config['total_rows'] = $this->populares($pagina)->total_pages;
     $config['per_page'] = 1;
 

@@ -80,17 +80,11 @@
             </div><!-- close .col -->
                                 <?php }?>
         </div><!-- close .row -->
+        <?=$this->pagination->create_links();?>
 
         
 
-        <ul class="page-numbers">
-            <li><a class="previous page-numbers" href="#!"><i class="fas fa-chevron-left"></i></a></li>
-            <li><span class="page-numbers current">1</span></li>
-            <li><a class="page-numbers" href="#!">2</a></li>
-            <li><a class="page-numbers" href="#!">3</a></li>
-            <li><a class="page-numbers" href="#!">4</a></li>
-            <li><a class="next page-numbers" href="#!"><i class="fas fa-chevron-right"></i></a></li>
-        </ul>
+        
 
     </div><!-- close .dashboard-container -->
 </main>

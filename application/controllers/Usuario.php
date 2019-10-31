@@ -145,6 +145,25 @@ class Usuario extends CI_Controller
             echo json_encode(array('status'=> 'ee','tipo'=>'error',));
         }
     }
+    public function pegaValoresSeries()
+    {
+        $this->load->model("Usuario_model");
+        $dados = array( 
+            'serie'=> array('id'=>$this->input->post('id'),),
+            'temporadas'=>array('duracao'=> $this->input->post('duracao'),
+                              
+                                'serie_idserie'=>$this->input->post('id'),
+                                'assistido'=>1),
+            'usuario'=> array('id_usuario' => $this->input->post('id_usuario'),),);
+
+        if($this->Usuario_model->adicionarSerieAoUsuario($dados) == 1){
+            echo json_encode(array('status'=> 'ok'));
+        }else if($this->Usuario_model->adicionarSerieAoUsuario($dados) == 2){
+            echo json_encode(array('status'=> 'fail'));
+        }else if($this->Usuario_model->adicionarSerieAoUsuario($dados) == 3){
+            echo json_encode(array('status'=> 'ee','tipo'=>'error',));
+        }
+    }
 
     public function verificaSessao()
     {

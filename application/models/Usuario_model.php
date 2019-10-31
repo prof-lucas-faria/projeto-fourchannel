@@ -83,7 +83,51 @@ class Usuario_model extends CI_Model
 
     public function adicionarSerieAoUsuario($dados)
     {
-        # code...
+
+        $this->db->select('*');
+        $this->db->where('id_serie', $dados['serie']['id']);
+        $this->db->from('series');
+        $consulta = $this->db->get();
+        $id = "";
+
+        if (!count($consulta->result()) > 0) {
+            $insert = array(
+                'id_serie' => $dados['serie']['id'],
+            );
+
+            $this->db->insert("series", $insert);
+
+            $id = $this->db->insert_id();
+            $dados['temporadas']['series_idserie'] = $this->db->insert_id();
+
+            $this->db->insert("temporadas",$dados['temporadas']);
+
+        }
+
+        $this->db->select('*');
+        $this->db->where('serie_idserie',  $id == "" ? $consulta->result()[0]->idserie : $id);
+        $this->db->where('usuario_idusuario', $dados['usuario']['id_usuario']);
+        $this->db->from('estatisticas_series');
+        $consulta = $this->db->get();
+
+        if (!count($consulta->result()) > 0) {
+            $this->db->insert('estatisticas_series',
+                array(
+
+                    'serie_idserie' => $id == "" ? $consulta->result()[0]->idseries : $id,
+                    'usuario_idusuario' => $dados['usuario']['id_usuario'],
+                    'assistido' => 1)
+            );
+           
+            if ($this->db->affected_rows() > 0) {
+                return 1;
+            } else {
+                return 2;
+            }
+        }else{
+            return 3;
+        }
+
     }
 
     public function adicionarFilmesAoUsuario($dados)
@@ -161,16 +205,6 @@ class Usuario_model extends CI_Model
            WHERE u.idusuario = {$dados['id']}
            ");
            return $query->result();
-    }
-
-    public function atualizarSerieUsuario($dados)
-    {
-        # code...
-    }
-
-    public function atualizarFilmeUsuario($dados)
-    {
-        # code...
     }
 
 }

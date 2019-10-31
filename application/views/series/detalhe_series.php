@@ -115,10 +115,13 @@
                         <center>
                             <form   id="formulario" name="formulario" >
 
-                                <input type="hidden" id="idf" name="id" value="<?=$this->uri->segment('3');?>">
+                                <input type="hidden" id="id" name="id" value="<?=$this->uri->segment('3');?>">
+
                                 <input type="hidden" name="duracao" id="duracao" class="duracao"
                                     value="<?=$temporada['episode_count'] * $detalhes_full->detalhes->episode_run_time[0]?>">
+
                                 <input type="hidden" name="id_usuario" value="<?= isset($_SESSION['usuario'][0]->idusuario)?>">
+
    
                                     <?=empty($_SESSION['usuario']) == true ? '' : "<h4 class='content-sidebar-sub-header'><Button class='btn btn-success ' type='submit'>Adicionar a \n minha
 Biblioteca</Button></h4>"?>
@@ -226,13 +229,56 @@ Biblioteca</Button></h4>"?>
                 </div><!-- close .dashboard-container -->
 </main>
 </div><!-- close #sidebar-bg-->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 
 <!-- Required Framework JavaScript -->
 <script src="<?=base_url()?>assets/js/libs/jquery-3.3.1.min.js"></script><!-- jQuery -->
 <script src="<?=base_url()?>assets/js/libs/popper.min.js" defer></script><!-- Bootstrap Popper/Extras JS -->
 <script src="<?=base_url()?>assets/js/libs/bootstrap.min.js" defer></script><!-- Bootstrap Main JS -->
 <!-- All JavaScript in Footer -->
+<script>
+var frm = $('#formulario');
 
+frm.submit(function(e) {
+
+    e.preventDefault();
+
+    $.ajax({
+        type: 'POST',
+        url: '<?= base_url()?>index.php/Usuario/pegaValoresSeries',
+        data: frm.serialize(),
+        success: function(data) {
+            console.log(data)
+            var json = JSON.parse(data)
+            if (json.status === 'ok') {
+                Swal.fire({
+                    position: 'top-end',
+                    type: 'success',
+                    title: "Adicionado a biblioteca",
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+
+            }else
+            if(json.status === 'ee'){
+                Swal.fire({
+                    position: 'top-end',
+                    type: 'error',
+                    title: "Temporada já está adicionada em sua biblioteca",
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }
+
+        },
+        error: function(data) {
+            console.log(data)
+
+
+        },
+    });
+});
+</script>
 <!-- Additional Plugins and JavaScript -->
 <script src="<?=base_url()?>assets/js/navigation.js" defer></script><!-- Header Navigation JS Plugin -->
 <script src="<?=base_url()?>assets/js/jquery.flexslider-min.js" defer></script><!-- FlexSlider JS Plugin -->

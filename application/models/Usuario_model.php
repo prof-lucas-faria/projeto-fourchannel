@@ -90,7 +90,7 @@ class Usuario_model extends CI_Model
         $consulta = $this->db->get();
         $id = "";
 
-        if (!count($consulta->result()) > 0) {
+        if (count($consulta->result()) == 0) {
             $insert = array(
                 'id_serie' => $dados['serie']['id'],
             );
@@ -110,7 +110,7 @@ class Usuario_model extends CI_Model
         $this->db->from('estatisticas_series');
         $consulta = $this->db->get();
 
-        if (!count($consulta->result()) > 0) {
+        if (count($consulta->result()) == 0) {
             $this->db->insert('estatisticas_series',
                 array(
 
@@ -138,7 +138,7 @@ class Usuario_model extends CI_Model
         $consulta = $this->db->get();
         $id = "";
 
-        if (!count($consulta->result()) > 0) {
+        if (count($consulta->result()) == 0) {
             $insert = array(
                 'id_filme' => $dados['id'],
                 'duracao' => $dados['duracao'],
@@ -154,7 +154,7 @@ class Usuario_model extends CI_Model
         $this->db->from('estatisticas_filmes');
         $consulta = $this->db->get();
 
-        if (!count($consulta->result()) > 0) {
+        if (count($consulta->result()) == 0) {
             $this->db->insert('estatisticas_filmes',
                 array(
                     'filmes_idfilmes' => $id == "" ? $consulta->result()[0]->idfilmes : $id,

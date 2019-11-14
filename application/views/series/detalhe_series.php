@@ -102,7 +102,7 @@
         <div class="movie-details-section">
             <h2>Temporadas</h2>
             <div class="row">
-            <?= var_dump($detalhes_full->detalhes->seasons)?>
+           
                 <?php foreach ($detalhes_full->detalhes->seasons as $temporada) {?>
                 <?php if ($temporada['poster_path'] != null && $temporada['poster_path'] != '') {?>
                 <div class="col-12 col-md-6 col-lg-6 col-xl-4">
@@ -123,9 +123,6 @@
 
                                 <input type="hidden" name="id_usuario" value="<?= isset($_SESSION['usuario'][0]->idusuario)?>">
 
-   
-                                    <?=empty($_SESSION['usuario']) == true ? '' : "<h4 class='content-sidebar-sub-header'><Button class='btn btn-success '>Adicionar a \n minha
-Biblioteca</Button></h4>"?>  
                             </form>
                     </center>
                     </div><!-- close .item-listing-container-skrn -->

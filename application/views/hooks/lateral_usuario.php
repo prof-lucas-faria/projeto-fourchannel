@@ -14,8 +14,8 @@
 				<h3 class="content-sidebar-sub-header">Estatisticas</h3>
 				<ul id="profile-watched-stats">
 					<li><span><?= round($estatisticasFilmes[0]->tempoFilme/60,2)?></span> Horas em Filmes</li>
-					<li><span>28</span> Horas em Series</li>
-					<li><span>07</span> Epsodios assistidos</li>
+					<!--<li><span>28</span> Horas em Series</li>-->
+					<!--<li><span>07</span> Epsodios assistidos</li>-->
 				</ul>
 			</div><!-- close .content-sidebar-section -->
 			

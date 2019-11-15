@@ -198,9 +198,9 @@ class Usuario_model extends CI_Model
         $query = $this->db->query(
             "SELECT SUM(ff.duracao) as tempoFilme  from 
             usuarios u 
-            inner JOIN estatisticas_filmes ef
+            INNER JOIN estatisticas_filmes ef
                     on u.idusuario = ef.usuarios_idusuario 
-            inner JOIN filmes ff 
+            INNER JOIN filmes ff 
                    on ef.filmes_idfilmes = ff.idfilmes 
            WHERE u.idusuario = {$dados['id']}
            ");

@@ -23,7 +23,7 @@ class Usuario extends CI_Controller
     public function home()
     {
         $this->verificaSessao();
-   
+     
         $data['filmes_assistidos']= (object)$this->Usuario_model->listarFilmesJaAssistidos(array('id'=>$_SESSION['usuario'][0]->idusuario));
         $data['estatisticasFilmes'] =$this->Usuario_model->qtdeHorasFilmesAssistidos(array('id'=>$_SESSION['usuario'][0]->idusuario));
         $this->load->view('hooks/menu_lateral');
@@ -84,13 +84,14 @@ class Usuario extends CI_Controller
        $usuario =array(
            'nome_usuario'=>$this->input->post('nome'),
            'email'=>$this->input->post('email'),
-           'senha'=>$this->input->post('nova_senha'),
+           'senha'=>md5($this->input->post('nova_senha')),
         );
 
         $this->load->model("Usuario_model");
         $atualiza =$this->Usuario_model->atualizarUsuario($usuario,$_SESSION['usuario'][0]->idusuario);
 
         if($atualiza){
+          //  $_SESSION['usuario'][0]->nome_usuario = $this->input->post('nome');
             echo json_encode(array("atualizado"=>true));
         }else{
            echo json_encode(array("atualizado"=>false));
@@ -136,11 +137,12 @@ class Usuario extends CI_Controller
         unset($_SESSION['usuario']);
         session_destroy();
         //    $this->session->destroi();
-        redirect('Usuario/home');
+        redirect('Usuario');
     }
 
     public function pegaValoresFilmes()
     {
+        $this->verificaSessao();
         $this->load->model("Usuario_model");
         $dados = array(
             'id'=> $this->input->post('id'),
@@ -157,12 +159,12 @@ class Usuario extends CI_Controller
     }
     public function pegaValoresSeries()
     {
+        $this->verificaSessao();
         $this->load->model("Usuario_model");
         $dados = array( 
             'serie'=> array('id'=>$this->input->post('id'),),
             'temporadas'=>array(
                 'duracao'=> $this->input->post('duracao'),
-                              
                                 'serie_idserie'=>$this->input->post('id'),
                                 'assistido'=>1),
             'usuario'=> array('id_usuario' => $this->input->post('id_usuario'),),);
@@ -178,8 +180,8 @@ class Usuario extends CI_Controller
 
     public function verificaSessao()
     {
-        if (!(isset($_SESSION['usuario'])) || !(isset($_SESSION['status']))) {
-            header("Location:" . base_url() . "index.php/Usuario");
+        if (!(isset($_SESSION['usuario'])) || !(isset($_SESSION['status'])||$_SESSION['usuario']==NULL)) {
+            redirect('Usuario');
         }
     }
 }

@@ -77,10 +77,10 @@
                 <div id="header-user-profile-click" class="noselect">
                     <img src="<?=base_url()?>assets/images/demo/user-profile.jpg" alt="Suzie">
                     <div id="header-username">
-                        <?= isset($_SESSION['status']) == true ?  $_SESSION['usuario'][0]->nome_usuario : '<a href=' . base_url() . 'index.php/Usuario>Entrar<a/>'?>
+                        <?= isset($_SESSION['usuario']) == true ?  $_SESSION['usuario'][0]->nome_usuario : '<a href=' . base_url() . 'index.php/Usuario>Entrar<a/>'?>
                     </div><i class="fas fa-angle-down"></i>
                 </div><!-- close #header-user-profile-click -->
-                <?php if (isset($_SESSION['status']) == true) {?>
+                <?php if (isset($_SESSION['usuario']) == true) {?>
                 <div id="header-user-profile-menu">
                     <ul>
 

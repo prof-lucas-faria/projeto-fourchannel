@@ -28,46 +28,7 @@
             <div id="video-search-header">
                 <div id="search-icon-more"></div>
                 <input type="text" placeholder="Busca por filmes, séries, tv e animes" aria-label="Search">
-                <div id="video-search-header-filtering">
-                    <form id="video-search-header-filtering-padding">
-                        <div class="row">
-                            <div class="col-sm extra-padding">
-                                <h5>Tipo:</h5>
-
-                                <div class="row">
-                                    <div class="col-sm">
-                                        <label class="checkbox-pro-container">Filmes
-                                            <input type="checkbox" checked="checked" id="movies-type">
-                                            <span class="checkmark-pro"></span>
-                                        </label>
-
-                                        <label class="checkbox-pro-container">Series
-                                            <input type="checkbox" id="tv-type">
-                                            <span class="checkmark-pro"></span>
-                                        </label>
-                                    </div><!-- close .col -->
-
-                                </div><!-- close .row -->
-
-                                <div class="dotted-dividers-pro"></div>
-                            </div><!-- close .col -->
-                            <div class="col-sm extra-padding">
-                                <h5>Genres:</h5>
-                                <select class="custom-select">
-                                    <option selected>All Genres</option>
-
-                                </select>
-                                <div class="dotted-dividers-pro"></div>
-                            </div><!-- close .col -->
-
-
-                        </div><!-- close .row -->
-                        <div id="video-search-header-buttons">
-                            <a href="#!" class="btn btn-green-pro">Filter Search</a>
-                            <a href="#!" class="btn">Reset</a>
-                        </div><!-- close #video-search-header-buttons -->
-                    </form><!-- #video-search-header-filtering-padding -->
-                </div><!-- close #video-search-header-filtering -->
+            
             </div><!-- close .video-search-header -->
 
             <div id="mobile-bars-icon-pro" class="noselect"><i class="fas fa-bars"></i></div>
@@ -75,7 +36,7 @@
 
             <div id="header-user-profile">
                 <div id="header-user-profile-click" class="noselect">
-                    <img src="<?=base_url()?>assets/images/demo/user-profile.jpg" alt="Suzie">
+                    <!-- <img src="<?=base_url()?>assets/images/demo/user-profile.jpg" alt="Suzie"> -->
                     <div id="header-username">
                         <?= isset($_SESSION['usuario']) == true ?  $_SESSION['usuario'][0]->nome_usuario : '<a href=' . base_url() . 'index.php/Usuario>Entrar<a/>'?>
                     </div><i class="fas fa-angle-down"></i>

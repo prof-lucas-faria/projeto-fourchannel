@@ -21,48 +21,25 @@
                 </div><!-- close .col -->
                 <div class="col">
 
-                    <form class="account-settings-form"
+                    <form name="informacaoConta" id="informacaoConta" class="account-settings-form"
                         action="<?=base_url()?>index.php/Usuario/atualizarInformacoesConta">
 
                         <h5>Informações gerais</h5>
-                    
+
                         <div class="row">
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="nome" class="col-form-label">Nome:</label>
-                                    <input type="text" class="form-control" name="nome" value="<?= $usuario[0]->nome?>">
-                                </div>
-                            </div><!-- close .col -->
+
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="last-name" class="col-form-label">Nome de Usuario:</label>
-                                    <input type="text" class="form-control" disabled="true" value="<?= $usuario[0]->nome_usuario?>">
+                                    <input type="text" class="form-control" name="nome"
+                                        value="<?=$usuario[0]->nome_usuario?>">
                                 </div>
                             </div><!-- close .col -->
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="last-name" class="col-form-label">E-mail:</label>
-                                    <input type="text" class="form-control" disabled="true" value="<?= $usuario[0]->email?>">
-                                </div>
-                            </div><!-- close .col -->
-
-                        </div><!-- close .row -->
-                        <hr>
-
-                        <h5>Informações da conta</h5>
-
-                        <div class="row">
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="e-mail" class="col-form-label">E-mail</label>
-                                    <input type="text" class="form-control" id="email" name="email"
-                                        value="<?= $usuario[0]->email?>">
-                                </div>
-                            </div><!-- close .col -->
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <div><label for="button-change" class="col-form-label">&nbsp; &nbsp;</label></div>
-                                    <a href="#!" onclick="b()" class="btn btn-form">Alterar E-mail</a>
+                                    <input type="text" class="form-control" name="email"
+                                        value="<?=$usuario[0]->email?>">
                                 </div>
                             </div><!-- close .col -->
 
@@ -76,22 +53,23 @@
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="password" class="col-form-label">Senha atual:</label>
-                                    <input type="password" class="form-control" name="senha_atual">
+                                    <input type="password" class="form-control" name="senha_atual"
+                                        value="<?=$usuario[0]->senha?>">
                                 </div>
                             </div><!-- close .col -->
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="new-password" class="col-form-label">Nova senha:</label>
-                                    <input type="text" class="form-control" name="nova_senha"
-                                        placeholder="Minimo 6 caracteres">
+                                    <input type="password" class="form-control" name="nova_senha"
+                                        placeholder="Minimo 6 caracteres" >
                                 </div>
                             </div><!-- close .col -->
                             <div class="col-sm">
                                 <div class="form-group">
                                     <div><label for="confirm-password" class="col-form-label">&nbsp; &nbsp;</label>
                                     </div>
-                                    <input type="text" class="form-control" name="nova_senha_c"
-                                        placeholder="Confirme a senha">
+                                    <input type="password" class="form-control" name="nova_senhaC"
+                                        placeholder="Confirme a senha" >
                                 </div>
                             </div><!-- close .col -->
                         </div><!-- close .row -->
@@ -100,7 +78,7 @@
 
                         <div class="clearfix"></div>
                         <hr>
-                        <p><a href="#" onclick="a()" class="btn btn-green-pro">Salvar</a></p>
+                        <p><button type="submit" class="btn btn-green-pro">Salvar</button></p>
                         <br>
                     </form>
 
@@ -116,23 +94,43 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 
 <script>
-function a() {
+function validacao() {
+
+    var nome = document.forms["informacaoConta"]["nome"].value;
+    var email = document.forms["informacaoConta"]["email"].value;
+    var nsenha = document.forms["informacaoConta"]["nova_senha"].value;
+    var senha = document.forms["informacaoConta"]["senha_atual"].value;
+    var nsenhac = document.forms["informacaoConta"]["nova_senhaC"].value;
+
+if(nsenha != nsenhac){
     Swal.fire({
-        position: 'top-end',
-        type: 'success',
-        title: 'Salvo com sucesso',
-        showConfirmButton: false,
-        timer: 2000
-    })
+            position: 'center',
+            type: 'error',
+            title: "Verifique sua senha!!",
+            showConfirmButton: false,
+            timer: 2000
+        });
+
+}else{
+    console.log(nome);
+    console.log(email);
+    console.log(nsenha);
+    console.log(senha);
+    
+    if (nome == "" || email == "" || nsenha == "" || senha == "") {
+        Swal.fire({
+            position: 'center',
+            type: 'error',
+            title: 'Todos os campos são obrigatórios',
+            showConfirmButton: false,
+            timer: 2000
+        });
+        return false;
+    } else {
+        return true
+    }
 }
-function b() {
-    Swal.fire({
-        position: 'top-end',
-        type: 'success',
-        title: 'Email atualizado com sucesso !!',
-        showConfirmButton: false,
-        timer: 2000
-    })
+    
 }
 </script>
 <!-- Required Framework JavaScript -->
@@ -140,7 +138,41 @@ function b() {
 <script src="<?=base_url()?>assets/js/libs/popper.min.js" defer></script><!-- Bootstrap Popper/Extras JS -->
 <script src="<?=base_url()?>assets/js/libs/bootstrap.min.js" defer></script><!-- Bootstrap Main JS -->
 <!-- All JavaScript in Footer -->
+<script>
+var formConta = $('#informacaoConta');
+formConta.submit(function(e) {
 
+    e.preventDefault();
+    if( validacao()==true){
+        $.ajax({
+        type: 'POST',
+        url: '<?=base_url()?>index.php/Usuario/atualizarInformacoesConta',
+        data: formConta.serialize(),
+        success: function(data) {
+            console.log(data)
+            var json = JSON.parse(data)
+            if (json.atualizado == true) {
+                Swal.fire({
+                    position: 'top-end',
+                    type: 'success',
+                    title: 'Salvo com sucesso',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+                location.reload();
+            }
+        },
+        error: function(data) {
+            console.log(data)
+
+
+        },
+    });
+    }
+
+   
+});
+</script>
 <!-- Additional Plugins and JavaScript -->
 <script src="<?=base_url()?>assets/js/navigation.js" defer></script><!-- Header Navigation JS Plugin -->
 <script src="<?=base_url()?>assets/js/jquery.flexslider-min.js" defer></script><!-- FlexSlider JS Plugin -->

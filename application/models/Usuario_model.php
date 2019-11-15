@@ -41,32 +41,20 @@ class Usuario_model extends CI_Model
 
     public function atualizarUsuario($dados, $id)
     {
-        $pessoa = array(
-            'nome' => $dados['pessoa']['nome'],
-            'data_nascimento' => $dados['pessoa']['data_nascimento'],
-            'telefone' => $dados['pessoa']['telefone'],
-            'sexo' => $dados['pessoa']['sexo'],
-        );
-        $usuario = array(
-            'nome_usuario', $dados['usuario']['nome_usuario'],
-            'email', $dados['usuario']['email'],
-            'senha', $dados['usuario']['senha'],
-            'foto', $dados['usuario']['foto'],
-            'pessoa_idpessoa', $dados['usuario']['pessoa_idpessoa'],
-        );
-
-        $this->db->where('id', $id);
-
-        if ($this->db->update('pessoas', $pessoa) && $this->db->update('usuarios', $usuario)) {
-            return true;
+       
+    
+        $this->db->where('idusuario', $id);
+       $update= $this->db->update('usuarios', $dados);
+        if ($update) {
+            return $update;
         }
-        return false;
+        return $update;
     }
 
     public function exibirInformacoesDoUsuario($id)
     {
        
-    $query = $this->db->query("SELECT * from pessoas INNER JOIN usuarios on pessoas.idpessoa = usuarios.pessoa_idpessoa WHERE pessoas.idpessoa = {$id}");
+    $query = $this->db->query("SELECT * from  usuarios  WHERE usuarios.pessoa_idpessoa = {$id}");
        return $query->result();
         //return $consulta;
      }

@@ -77,15 +77,25 @@ class Usuario extends CI_Controller
         $this->load->view('usuario/perfil', $data);
     }
 
-    // form atualizar perfil
-    public function atualizarEmail()
-    {
-        # code...
-    }
+   
     // form atualizar perfil
     public function atualizarInformacoesConta()
     {
-        # code...
+       $usuario =array(
+           'nome_usuario'=>$this->input->post('nome'),
+           'email'=>$this->input->post('email'),
+           'senha'=>$this->input->post('nova_senha'),
+        );
+
+        $this->load->model("Usuario_model");
+        $atualiza =$this->Usuario_model->atualizarUsuario($usuario,$_SESSION['usuario'][0]->idusuario);
+
+        if($atualiza){
+            echo json_encode(array("atualizado"=>true));
+        }else{
+           echo json_encode(array("atualizado"=>false));
+        }
+
     }
 
 
@@ -150,7 +160,8 @@ class Usuario extends CI_Controller
         $this->load->model("Usuario_model");
         $dados = array( 
             'serie'=> array('id'=>$this->input->post('id'),),
-            'temporadas'=>array('duracao'=> $this->input->post('duracao'),
+            'temporadas'=>array(
+                'duracao'=> $this->input->post('duracao'),
                               
                                 'serie_idserie'=>$this->input->post('id'),
                                 'assistido'=>1),

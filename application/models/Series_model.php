@@ -90,7 +90,7 @@ class Series_model extends CI_Model {
 
   public function buscarSerie($query)
   {
-    
+   return (object) $this->tmdb->searchTv($query);
   }
   
 }

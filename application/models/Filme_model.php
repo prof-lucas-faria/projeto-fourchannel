@@ -81,7 +81,7 @@ class Filme_model extends CI_Model {
 
   public function buscarFilme($query)
   {
-    
+   return (object) $this->tmdb->searchMovie($query);
   }
 
 }

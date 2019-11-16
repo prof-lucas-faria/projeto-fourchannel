@@ -92,5 +92,13 @@ public function listarPorGenero($idSerie)
   {
     
   }
+  public function pesquisarSeries()
+  {
+    $termosDaBusca = $this->input->get("termosBusca");
+    $data['generos'] = $this->listaDeGeneros();
+    $data['resultado'] = $this->series_model->buscarSerie($termosDaBusca);
 
+    $this->load->view('hooks/menu_lateral');
+    $this->load->view('busca/busca', $data);
+  }
 }

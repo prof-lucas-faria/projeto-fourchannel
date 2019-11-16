@@ -89,6 +89,12 @@ class Filmes extends CI_Controller
 
     public function pesquisarFilme()
     {
+        $termosDaBusca = $this->input->get("termosBusca");
+        $data['generos'] = $this->listaDeGeneros();
+        $data['resultado'] = $this->filme_model->buscarFilme($termosDaBusca);
+
+        $this->load->view('hooks/menu_lateral');
+        $this->load->view('busca/busca', $data);
 
     }
 }

@@ -25,11 +25,17 @@
             <div id="video-logo-background"><a href="<?=base_url()?>index.php/Filmes"><img
                         src="<?=base_url()?>assets/images/CDR/fourChannel.png" alt="Logo"></a></div>
 
+            <form action="<?=$this->uri->segment(1) =='Filmes'?base_url().'index.php/Filmes/pesquisarFilme':base_url().'index.php/Series/pesquisarSeries'?>"  type="POST">
             <div id="video-search-header">
+            <input type="submit" value="" style="display:none">
+             
                 <div id="search-icon-more"></div>
-                <input type="text" placeholder="Busca por filmes, séries, tv e animes" aria-label="Search">
-            
+                <input type="text" name="termosBusca" placeholder="Busca por filmes, séries" aria-label="Search">
+
             </div><!-- close .video-search-header -->
+
+            </form>
+           
 
             <div id="mobile-bars-icon-pro" class="noselect"><i class="fas fa-bars"></i></div>
 

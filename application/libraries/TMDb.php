@@ -80,15 +80,27 @@ class TMDb
      * @param mixed $lang				Filter the result with a language (ISO 3166-1) other then default, use false to retrieve results from all languages
      * @return TMDb result array
      */
-    public function searchMovie($query, $page = 1, $adult = false, $year = null)
+    public function searchMovie($query, $page = 1)
+    {
+        $params = array(
+            'query' => $query,
+            'page' => (int) $page,
+            'language' => "pt-BR"
+        );
+        return $this->_makeCall('search/movie', $params);
+    }
+
+    
+    public function searchTv($query, $page = 1, $adult = false, $year = null)
     {
         $params = array(
             'query' => $query,
             'page' => (int) $page,
             'include_adult' => (bool) $adult,
             'year' => $year,
+            'language' => "pt-BR"
         );
-        return $this->_makeCall('search/movie', $params);
+        return $this->_makeCall('search/tv', $params);
     }
 
 

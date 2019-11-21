@@ -12,17 +12,17 @@
         <div class="container">
             <div class="registration-steps-page-container">
 
-                <form class="registration-steps-form" method="post" id="form_entrar">
+                <form class="registration-steps-form" method="post" id="form_entrar" name="form_entrar">
 
                     <div class="registration-social-login-container">
 
                         <div class="form-group">
                             <label for="full-name" class="col-form-label">E-mail</label>
-                            <input type="text" class="form-control" name="email">
+                            <input type="text" class="form-control" name="email" id="email">
                         </div>
                         <div class="form-group">
                             <label for="email" class="col-form-label">Senha</label>
-                            <input type="text" class="form-control" name="senha">
+                            <input type="password" class="form-control" name="senha" id="senha">
                         </div>
 
                         <div class="clearfix"></div>
@@ -164,6 +164,8 @@ frm.submit(function(e) {
 
         },
     });
+
+    
 });
 </script>
 <!-- Additional Plugins and JavaScript -->

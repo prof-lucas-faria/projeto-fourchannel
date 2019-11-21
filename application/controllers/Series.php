@@ -99,6 +99,6 @@ public function listarPorGenero($idSerie)
     $data['resultado'] = $this->series_model->buscarSerie($termosDaBusca);
 
     $this->load->view('hooks/menu_lateral');
-    $this->load->view('busca/busca', $data);
+    $this->load->view('buscar/busca', $data);
   }
 }

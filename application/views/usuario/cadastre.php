@@ -10,23 +10,23 @@
         <div class="container">
             <div class="registration-steps-page-container">
 
-                <form class="registration-steps-form" method="post" action="<?=base_url()?>index.php/Usuario/salvarFormulario">
+                <form  method="post" id="form_cadastro" name="form_cadastro" action="<?=base_url()?>index.php/Usuario/salvarFormulario">
 
                     <div class="registration-social-login-container">
 
                         <div class="form-group">
                             <label for="full-name" class="col-form-label">Nome</label>
-                            <input type="text" class="form-control" name="nome">
+                            <input type="text" class="form-control" name="nome" require="true">
                         </div>
                        
                         <div class="form-group">
                             <label for="email" class="col-form-label">Nome de Usuario</label>
-                            <input type="text" class="form-control" name="nome_usuario">
+                            <input type="text" class="form-control" name="nome_usuario" require="true">
                         </div>
 
                         <div class="form-group">
                             <label for="email" class="col-form-label">Data de nascimento</label>
-                            <input type="date" class="form-control" name="data_nascimento">
+                            <input type="date" class="form-control" name="data_nascimento" require="true">
                         </div>
 
 
@@ -36,7 +36,7 @@
                         </div>
                         <div class="form-group">
                             <label for="email" class="col-form-label">Email</label>
-                            <input type="text" class="form-control" name="email">
+                            <input type="text" class="form-control" name="email" require="true">
                         </div>
                         <div class="form-group">
                             <label for="full-name" class="col-form-label">sexo</label>
@@ -49,20 +49,17 @@
                             <div class="row">
                                 <div class="col">
                                     <label for="password" class="col-form-label">Senha</label>
-                                    <input type="password" class="form-control" name="senha">
+                                    <input type="password" class="form-control" name="senha" require="true">
                                 </div>
-                                <div class="col">
-                                    <label for="confirm-password" class="col-form-label">&nbsp;</label>
-                                    <input type="password" class="form-control" name="conf_senha">
-                                </div>
+                              
                             </div>
                         </div>
                     </div><!-- close .registration-social-login-options -->
 
                     <div class="clearfix"></div>
                     <div class="form-group last-form-group-continue">
-                        <input type="submit" class="btn btn-green-pro" value="Cadastre-se"/>
-                        <a href="<?=base_url()?>index.php/Usuario/" >já tenho conta</a>
+                    <button type="submit"  class="btn btn-green-pro">Cadastre-se</button>    
+                    <a href="<?=base_url()?>index.php/Usuario/" >já tenho conta</a>
                         <div class="clearfix"></div>
                     </div>
                 </form>

@@ -14,9 +14,7 @@ class Usuario extends CI_Controller
     public function index()
     {
         $data['generos'] = $this->filme_model->listaDeGeneros();
-        $data['logado'] = false;
         $this->load->view('hooks/menu_lateral', $data);
-
         $this->load->view('usuario/entrar', $data);
     }
 
@@ -33,17 +31,16 @@ class Usuario extends CI_Controller
 
     public function cadastre()
     {
+        
+
         $data['generos'] = $this->filme_model->listaDeGeneros();
-
         $this->load->view('hooks/menu_lateral', $data);
-
         $this->load->view('usuario/cadastre', $data);
     }
 
    
     public function entrar()
     {
-        // session_destroy();
       
 
         $usuario = $this->Usuario_model->buscarUsuario(
@@ -122,8 +119,6 @@ class Usuario extends CI_Controller
         );
         $id =$this->Usuario_model->adicionarUsuario($dados);
         if ($id) {
-            $_SESSION['usuario'] = $dados;
-            $_SESSION['usuario']['idusuario'] =$id;
             redirect('Usuario');
         } else {
             redirect('Usuario/cadastre');
@@ -136,7 +131,6 @@ class Usuario extends CI_Controller
         unset($_SESSION['status']);
         unset($_SESSION['usuario']);
         session_destroy();
-        //    $this->session->destroi();
         redirect('Usuario');
     }
 

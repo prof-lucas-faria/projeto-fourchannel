@@ -60,8 +60,7 @@
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="new-password" class="col-form-label">Nova senha:</label>
-                                    <input type="password" class="form-control" name="nova_senha"
-                                        placeholder="Minimo 6 caracteres" >
+                                    <input type="password" class="form-control" name="nova_senha">
                                 </div>
                             </div><!-- close .col -->
                             <div class="col-sm">

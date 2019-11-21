@@ -94,7 +94,7 @@ class Filmes extends CI_Controller
         $data['resultado'] = $this->filme_model->buscarFilme($termosDaBusca);
 
         $this->load->view('hooks/menu_lateral');
-        $this->load->view('busca/busca', $data);
+        $this->load->view('buscar/busca', $data);
 
     }
 }

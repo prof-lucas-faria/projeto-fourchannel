@@ -102,3 +102,4 @@ public function listarPorGenero($idSerie)
     $this->load->view('buscar/busca', $data);
   }
 }
+

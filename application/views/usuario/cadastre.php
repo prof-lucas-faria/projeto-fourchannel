@@ -6,11 +6,12 @@
         </div>
     </div><!-- close .container -->
 
+  
     <div id="pricing-plans-background-image">
         <div class="container">
             <div class="registration-steps-page-container">
 
-                <form  method="post" id="form_cadastro" name="form_cadastro" action="<?=base_url()?>index.php/Usuario/salvarFormulario">
+                <form  method="post" id="form_cadastro" class="registration-steps-form" name="form_cadastro" action="<?=base_url()?>index.php/Usuario/salvarFormulario">
 
                     <div class="registration-social-login-container">
 
@@ -68,7 +69,7 @@
 
         </div><!-- close .container -->
     </div><!-- close #pricing-plans-background-image -->
-
+</div>
 </div><!-- close #content-pro -->
 
 

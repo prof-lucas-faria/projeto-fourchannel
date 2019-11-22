@@ -49,13 +49,18 @@
         </ul>
     </div><!-- close .progression-studios-slider - See /js/script.js file for options -->
 
+
     <ul class="dashboard-genres-pro">
-        <?php foreach ($generos->genres as $listaDeGeneros) {?>
+        <?php foreach($generos->genres as $listar){?>
+       
         <li class="active">
-            <img src="<?=base_url()?>assets/images/genres/<?=$listaDeGeneros['id']?>.png" alt="Drama">
-            <h6><?=$listaDeGeneros['name']?></h6>
+        <a href="<?=base_url()?>index.php/Series/listarPorGenero/<?= $listar['id']?>" alt="Listing">
+
+            <img src="<?= base_url()?>assets/images/genres/<?= $listar['id']?>.png" alt="Drama">
+            </a>
+            <h6> <?= $listar['name']?></h6>          
         </li>
-        <?php }?>
+        <?php  }?>
     </ul>
 
     <div class="clearfix"></div>

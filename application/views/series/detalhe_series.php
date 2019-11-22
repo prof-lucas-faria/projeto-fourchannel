@@ -45,15 +45,19 @@
         <div class="content-sidebar-short-description">
             <?=$detalhes_full->detalhes->in_production == '1' ? 'Sim' : 'Descontinuado'?></div>
     </div><!-- close .content-sidebar-section -->
+    <?php if (!empty($detalhes_full->elenco->crew)) {?>
 
     <div class="content-sidebar-section">
         <h4 class="content-sidebar-sub-header">Diretor da Serie</h4>
+      
         <?php foreach ($detalhes_full->elenco->crew as $producao) {?>
         <?php if ($producao['department'] == "Directing" && $producao['job'] == "Director") {?>
         <div class="content-sidebar-short-description"><?=$producao['name']?></div>
         <?php }?>
         <?php }?>
     </div><!-- close .content-sidebar-section -->
+    <?php }?>
+
 </div>
 </div><!-- close #content-sidebar-pro -->
 
@@ -95,11 +99,14 @@
     <div class="dashboard-container">
 
         <div class="movie-details-section">
+        <?php if(!empty($detalhes_full->detalhes->overview)){?>
             <h2>Resumo da Série</h2>
             <p><?=$detalhes_full->detalhes->overview?></p>
+        <?php }?>
         </div><!-- close .movie-details-section -->
 
         <div class="movie-details-section">
+        <?php if(!empty($detalhes_full->detalhes->seasons)) {?>
             <h2>Temporadas</h2>
             <div class="row">
            
@@ -130,9 +137,13 @@
                 <?php }?>
                 <?php }?>
             </div><!-- close .row -->
+            <?php }?>
+
         </div><!-- close .movie-details-section -->
 
         <div class="movie-details-section">
+        <?php if (!empty($detalhes_full->detalhes->created_by)) {?>
+        
             <h2>Criado por </h2>
             <div class="row">
                 <?php foreach ($detalhes_full->detalhes->created_by as $criado) {?>
@@ -149,10 +160,14 @@
                 <?php }?>
                 <?php }?>
             </div><!-- close .row -->
+            <?php }?>
+
         </div><!-- close .movie-details-section -->
 
 
         <div class="movie-details-section">
+        <?php if (!empty($detalhes_full->elenco->cast)) {?>
+        
             <h2>Elenco</h2>
             <div class="row flex-row ">
                 <?php foreach ($detalhes_full->elenco->cast as $elenco) {?>
@@ -189,6 +204,8 @@
                         <?php }?>
                         <?php }?>
                     </div><!-- close .row -->
+                    <?php }?>
+
                 </div><!-- close .movie-details-section -->
 
                 <div class="movie-details-section">

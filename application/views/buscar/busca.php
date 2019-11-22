@@ -19,7 +19,7 @@
 
     <div class="dashboard-container">
 
-        <h4 class="heading-extra-margin-bottom">Resultado da pesquisa por <?=$_GET['termosBusca']?></h4>
+        <h4 class="heading-extra-margin-bottom">Resultado da pesquisa por: <?=$_GET['termosBusca']?></h4>
         <div class="row">
        <?php foreach ($resultado->results as $listaDeResultados) {?>
             <div class="col-12 col-md-6 col-lg-4 col-xl-3">
@@ -30,7 +30,7 @@
                             alt="Listing"></a>
                     <div class="item-listing-text-skrn">
                         <div class="item-listing-text-skrn-vertical-align">
-                            <h6><a href="3"><?=$listaDeResultados['original_name']?></a></h6>
+                            <h6><a href="3"><?=empty($listaDeResultados['original_name']) == true? $listaDeResultados['title']:$listaDeResultados['original_name'] ?></a></h6>
                             <div class="circle-rating-pro" data-value="0.<?=round($listaDeResultados['vote_average'])?>"
                                 data-animation-start-value="0.6" data-size="32" data-thickness="3" data-fill="{
 							          &quot;color&quot;: &quot;#42b740&quot;

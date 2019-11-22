@@ -60,10 +60,7 @@ class Series extends CI_Controller
   {
     return $this->series_model->detalhesFullSerie($idSerie);
   }
-  public function topRanted()
-  {
-  	
-  }
+
 public function listarPorGenero($idSerie)
 {
   $data['listaDeSeriePorGenero'] = $this->series_model->filtrodeSeriePorGenero($idSerie);
@@ -87,10 +84,6 @@ public function listarPorGenero($idSerie)
   public function listaPorGeneros( $genreId)
   {
     return $this->series_model->listaDeSeriePorGenero( $genreId);
-  }
-  public function detalheFullSerie($idSerie)
-  {
-    
   }
   public function pesquisarSeries()
   {

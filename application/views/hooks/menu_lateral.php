@@ -98,7 +98,7 @@
                         <span class="icon-Reel"></span> Filmes
                     </a>
                 </li>
-                <li class="normal-item-pro">
+                <li class="normal-item-pro current-menu-item">
                     <a href="<?=base_url()?>index.php/Series">
                         <span class="icon-Movie-Ticket"></span>
                         Series

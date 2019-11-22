@@ -1,32 +1,21 @@
 <?php
-
-
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Series_model extends CI_Model {
   public function __construct()
   {
     parent::__construct();
   }
-  public function listarTopRated()
-  {
-    
-  }
+ 
   public function listarPopulares($pagina)
   {
     /**return  $this->tmdb->getPopularTv();**/
     return(object)  $this->tmdb->getPopularTv($pagina);
-
-
-
   }
   public function listaDeGeneros()
   {
     /**return  $this->tmdb->getListGenres();**/
     return(object)  $this->tmdb->getListGenres();
-
   }
-
   public function detalhesFullSerie($idSerie)
   {
     $dados = array(
@@ -34,7 +23,7 @@ class Series_model extends CI_Model {
       "detalhes" =>(object) $this->detalheSerie($idSerie),
       "similar" =>(object) $this->listaDeSerieSimilares($idSerie),
       "videos" =>(object)$this->listarTraillers($idSerie),
-      "reviews" =>(object) $this->listaDeReviews($idSerie)
+      //"reviews" =>(object) $this->listaDeReviews($idSerie)
     );
     return(object)$dados;
   }
@@ -63,26 +52,7 @@ class Series_model extends CI_Model {
     );
     return(object)$dados;
   }
-  public function listarPessoaProducao($idSerie)
-  {
   
-  }
-  public function listaDeComentarios($idSerie)
-  {
-    
-  }
-  public function listaDeReviews($idFilme)
-  {
-  }
-  public function detalheTemporada($idSerie)
-  {
-  }
-
-  public function listaDeTrailers($idSerie)
-  {
-        return(object)  $this->tmdb->getTvVideo();
-
-  }
   public function buscarPorID($id)
   {
     return (object) $this->tmdb->getTv($id);
